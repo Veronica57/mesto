@@ -6,25 +6,35 @@
 
 .header {
     max-width: 880px;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     gap: 41px;
 }
 
 .header__logo {
     width: 142px;
     height: 33px;
+    padding-top: 45px;
 }
 
 @media (max-width: 320px) {
     .header {
+        gap: 31.6px;
+    }
+
+    .header__logo {
         width: 103.7px;
         height: 24.4px;
+        padding-left: 27px;
+        padding-top: 28px;
     }
 }
 
 .header__line {
     opacity: 0.7;
     border: none;
-    color: #545454;
+    background-color: #545454;
     height: 1px;
+    margin: 0;
 }
