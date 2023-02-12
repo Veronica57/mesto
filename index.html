@@ -15,5 +15,157 @@
                 class="header__logo" />
             <hr class="header__line" />
         </header>
+        <section class="profile">
+            <div class="profile__avatar">
+                <img
+                    src="kusto.jpg"
+                    alt="Жан Жак Кусто"
+                    class="profile__avatar-image" />
+            </div>
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <p class="profile__description">Исследователь океана</p>
+                <button class="profile__edit-button" type="button"></button>
+            </div>
+            <button class="profile__add-button" type="button"></button>
+        </section>
+
+        <section class="card">
+            <ul class="card__items">
+                <li class="card__item">
+                    <img
+                        src="Лиссабон.jpg"
+                        alt="Лиссабон"
+                        class="card__item-image" />
+                    <div class="card__item-description">
+                        <h3 class="card__item-title">Лиссабон</h3>
+                        <div class="card__item-like-container">
+                            <button
+                                class="card__item-like-button"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="card__item">
+                    <img
+                        src="Богота.jpg"
+                        alt="Богота"
+                        class="card__item-image" />
+                    <div class="card__item-description">
+                        <h3 class="card__item-title">Богота</h3>
+                        <div class="card__item-like-container">
+                            <button
+                                class="card__item-like-button"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="card__item">
+                    <img
+                        src="Гора_Эльбрус.jpg"
+                        alt="Гора Эльбрус"
+                        class="card__item-image" />
+                    <div class="card__item-description">
+                        <h3 class="card__item-title">Гора Эльбрус</h3>
+                        <div class="card__item-like-container">
+                            <button
+                                class="card__item-like-button"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="card__item">
+                    <img
+                        src="Стамбул.jpg"
+                        alt="Стамбул"
+                        class="card__item-image" />
+                    <div class="card__item-description">
+                        <h3 class="card__item-title">Стамбул</h3>
+                        <div class="card__item-like-container">
+                            <button
+                                class="card__item-like-button"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="card__item">
+                    <img
+                        src="Карачаевск.jpg"
+                        alt="Карачаевск"
+                        class="card__item-image" />
+                    <div class="card__item-description">
+                        <h3 class="card__item-title">Карачаевск</h3>
+                        <div class="card__item-like-container">
+                            <button
+                                class="card__item-like-button"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="card__item">
+                    <img src="Гоа.jpg" alt="Гоа" class="card__item-image" />
+                    <div class="card__item-description">
+                        <h3 class="card__item-title">Гоа</h3>
+                        <div class="card__item-like-container">
+                            <button
+                                class="card__item-like-button"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <p class="footer__text">&COPY; 2023 Mesto Russia</p>
+        </footer>
+        <div class="popup" id="popup_profile">
+            <div class="popup__form-container">
+                <button
+                    class="popup__escape-button"
+                    type="button"
+                    id="edit_close"></button>
+                <form
+                    class="popup__form"
+                    name="profile_form"
+                    id="profile_form"
+                    novalidate>
+                    <h2 class="popup__form-title">Редактировать профиль</h2>
+                    <fieldset class="form">
+                        <label class="form__input-label">
+                            <input
+                                type="text"
+                                class="form__input"
+                                placeholder="Ваше Имя"
+                                value="Жак-Ив Кусто"
+                                id="fullName"
+                                name="name"
+                                minlength="2"
+                                maxlength="40"
+                                required />
+                            <span
+                                class="form__input-error fullName-error"></span>
+                        </label>
+                        <label class="form__input-label">
+                            <input
+                                type="text"
+                                class="form__input"
+                                placeholder="Место работы"
+                                value="Исследователь океана"
+                                id="workplace"
+                                name="workplace"
+                                minlength="2"
+                                maxlength="200"
+                                required />
+                            <span
+                                class="form__input-error workplace-error"></span>
+                        </label>
+                    </fieldset>
+                    <button class="popup__save-button" type="submit">
+                        Сохранить
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script src="index.js"></script>
     </body>
 </html>
