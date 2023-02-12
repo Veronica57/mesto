@@ -77,7 +77,7 @@
     height: 120px;
     border-radius: 50%;
     transition: 0.3s linear;
-    background-image: url("kusto.jpg");
+    background-image: url("./images/жак_кусто.jpg");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -168,7 +168,7 @@
     width: 24px;
     height: 24px;
     border: 1px solid #ffffff;
-    background-image: url("edit_button.svg");
+    background-image: url("./images/pen.svg");
     background-repeat: no-repeat;
     background-position: center;
     margin: 0;
@@ -197,7 +197,7 @@
     height: 50px;
     border: 2px solid #ffffff;
     border-radius: 2px;
-    background-image: url("add_button.svg");
+    background-image: url("./images/plus.svg");
     background-repeat: no-repeat;
     background-position: center;
     align-self: center;
@@ -310,7 +310,7 @@
 }
 
 .card__item-like-button {
-    background-image: url(like.svg);
+    background-image: url("./images/like_disabled.svg");
     border: none;
     width: 22px;
     height: 19px;
@@ -318,11 +318,12 @@
     background-size: contain;
     background-color: #fff;
     padding-right: 30px;
+    align-self: center;
 }
 
 .card__item-like-button:hover {
     cursor: pointer;
-    background-image: url(like_hover.svg);
+    background-image: url("./images/like_hover.svg");
 }
 
 .card__item-like-container {
