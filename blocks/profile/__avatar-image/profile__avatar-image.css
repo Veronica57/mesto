@@ -3,7 +3,6 @@
     height: 120px;
     border-radius: 50%;
     transition: 0.3s linear;
-    background-image: url("./images/жак_кусто.jpg");
     background-repeat: no-repeat;
     background-position: center;
 }

@@ -126,53 +126,35 @@
             <p class="footer__text">&COPY; 2023 Mesto Russia</p>
         </footer>
 
-        <!-- <div class="popup" id="popup_profile">
+        <div class="popup" id="popup_profile">
             <div class="popup__form-container">
-                <button
-                    class="popup__escape-button"
-                    type="button"
-                    id="edit_close"></button>
-                <form
-                    class="popup__form"
-                    name="profile_form"
-                    id="profile_form"
-                    novalidate>
+                <button class="popup__escape-button" type="button"></button>
+                <form action="" class="popup__form">
                     <h2 class="popup__form-title">Редактировать профиль</h2>
-                    <fieldset class="form">
-                        <label class="form__input-label">
-                            <input
-                                type="text"
-                                class="form__input"
-                                placeholder="Ваше Имя"
-                                value="Жак-Ив Кусто"
-                                id="fullName"
-                                name="name"
-                                minlength="2"
-                                maxlength="40"
-                                required />
-                            <span
-                                class="form__input-error fullName-error"></span>
-                        </label>
-                        <label class="form__input-label">
-                            <input
-                                type="text"
-                                class="form__input"
-                                placeholder="Место работы"
-                                value="Исследователь океана"
-                                id="workplace"
-                                name="workplace"
-                                minlength="2"
-                                maxlength="200"
-                                required />
-                            <span
-                                class="form__input-error workplace-error"></span>
-                        </label>
-                    </fieldset>
-                    <button class="popup__save-button" type="submit">
+                    <div class="popup__form-name">
+                        <label for="name"></label>
+                        <input
+                            type="text"
+                            name="name"
+                            class="popup__form-input"
+                            id="input_name" />
+                    </div>
+                    <div class="popup__form-description">
+                        <label for="description"></label>
+                        <input
+                            type="text"
+                            name="description"
+                            class="popup__form-input"
+                            id="input_description" />
+                    </div>
+                    <button
+                        class="popup__save-button popup__save-button_disabled"
+                        type="submit"
+                        disabled>
                         Сохранить
                     </button>
                 </form>
             </div>
-        </div> -->
+        </div>
     </body>
 </html>
