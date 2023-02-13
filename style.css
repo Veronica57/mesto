@@ -1,125 +1,6 @@
 /* HEADER  */
 
-/* !!!!!!CARD !!!! */
-.card {
-    display: flex;
-    max-width: 880px;
-    margin: 0 auto;
-    padding-top: 47px;
-    padding-bottom: 67px;
-}
-
-.card__items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fit, 1fr);
-    grid-column-gap: 17px;
-    grid-row-gap: 20px;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* @media screen and (max-width: 1279px) {
-.card__items {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 51px 0 0 0;
-    margin: 0 auto;
-}
-} */
-/* 
-@media screen and (max-width: 1023px) {
-.card__items {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 36px 0 0 0;
-}
-}
-
-@media screen and (max-width: 767px) {
-.card__items {
-    grid-template-columns: 1fr;
-}
-} */
-
-.card__item {
-    width: 282px;
-    height: 361px;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-}
-
-.card__item-image {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 282px;
-    height: 282px;
-}
-
-.card__item-image:hover {
-    cursor: pointer;
-}
-
-.card__item-description {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 25px;
-}
-
-.card__item-title {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
-    color: #000000;
-    margin: 0;
-    padding-left: 21px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 246px;
-}
-
-.card__item-like-button {
-    background-image: url("./images/like_disabled.svg");
-    border: none;
-    width: 22px;
-    height: 19px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #fff;
-    padding-right: 30px;
-    align-self: center;
-}
-
-.card__item-like-button:hover {
-    cursor: pointer;
-    background-image: url("./images/like_hover.svg");
-}
-
-.card__item-like-container {
-    display: flex;
-}
-
 /* FOOTER */
-.footer {
-    max-width: 880px;
-    margin: 0 auto;
-    padding-bottom: 60px;
-}
-
-.footer__text {
-    max-width: 318px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    color: #545454;
-    margin: 0;
-}
 
 /* POPUP */
 .popup {
@@ -133,7 +14,7 @@
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.7s, opacity 0.7s;
+    transition: visibility 0.5s, opacity 0.5s;
 }
 
 .popup__form-container {
