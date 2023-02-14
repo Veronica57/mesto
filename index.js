@@ -31,12 +31,10 @@ jobInput.value = user.description;
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
-    let job = document.querySelector(".profile__name");
-    (".profile__description");
-
-    job.textContent = jobInput;
-
-    nameInput.value = nameInput.textContent;
+    const profileName = document.querySelector(".profile__name");
+    const profileDescription = document.querySelector(".profile__description");
+    profileName.textContent = user.name;
+    profileDescription.textContent = user.description;
 }
 
 let formElement = document.querySelector(".popup__form");

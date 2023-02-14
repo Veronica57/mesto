@@ -131,22 +131,24 @@
                 <button class="popup__escape-button" type="button"></button>
                 <form action="" class="popup__form">
                     <h2 class="popup__form-title">Редактировать профиль</h2>
-                    <div class="popup__form-name">
-                        <label for="name"></label>
-                        <input
-                            type="text"
-                            name="name"
-                            class="popup__form-input"
-                            id="input_name" />
-                    </div>
-                    <div class="popup__form-description">
-                        <label for="description"></label>
-                        <input
-                            type="text"
-                            name="description"
-                            class="popup__form-input"
-                            id="input_description" />
-                    </div>
+                    <fieldset>
+                        <div class="popup__form-name">
+                            <input
+                                type="text"
+                                name="name"
+                                class="popup__form-input"
+                                id="input_name"
+                                required />
+                        </div>
+                        <div class="popup__form-description">
+                            <input
+                                type="text"
+                                name="description"
+                                class="popup__form-input"
+                                id="input_description"
+                                required />
+                        </div>
+                    </fieldset>
                     <button
                         class="popup__save-button popup__save-button_disabled"
                         type="submit"
