@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Место</title>
         <link rel="stylesheet" href="./pages/index.css" />
-        <link rel="stylesheet" href="style.css" />
         <script src="index.js" defer></script>
     </head>
     <body class="page">
@@ -26,8 +25,8 @@
                     class="profile__avatar-image" />
             </div>
             <div class="profile__info">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <p class="profile__description">Исследователь океана</p>
+                <h1 class="profile__name"></h1>
+                <p class="profile__description"></p>
                 <button class="profile__edit-button" type="button"></button>
             </div>
             <button class="profile__add-button" type="button"></button>
@@ -126,33 +125,26 @@
             <p class="footer__text">&COPY; 2023 Mesto Russia</p>
         </footer>
 
-        <div class="popup" id="popup_profile">
+        <div class="popup">
             <div class="popup__form-container">
                 <button class="popup__escape-button" type="button"></button>
                 <form action="" class="popup__form">
                     <h2 class="popup__form-title">Редактировать профиль</h2>
-                    <fieldset>
-                        <div class="popup__form-name">
-                            <input
-                                type="text"
-                                name="name"
-                                class="popup__form-input"
-                                id="input_name"
-                                required />
-                        </div>
-                        <div class="popup__form-description">
-                            <input
-                                type="text"
-                                name="description"
-                                class="popup__form-input"
-                                id="input_description"
-                                required />
-                        </div>
+                    <fieldset class="popup__form-fieldset">
+                        <input
+                            type="text"
+                            name="name"
+                            class="popup__form-input popup__form-name"
+                            required
+                            placeholder="Имя" />
+                        <input
+                            type="text"
+                            name="description"
+                            class="popup__form-input popup__form-description"
+                            required
+                            placeholder="Описание" />
                     </fieldset>
-                    <button
-                        class="popup__save-button popup__save-button_disabled"
-                        type="submit"
-                        disabled>
+                    <button class="popup__save-button" type="submit" disabled>
                         Сохранить
                     </button>
                 </form>

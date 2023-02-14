@@ -4,38 +4,68 @@ if (!openEditPopupButton) {
     throw new Error("No openEditPopupButton!");
 }
 
-const editPopup = document.querySelector(".popup");
-
-openEditPopupButton.addEventListener("click", openEditPopup);
-
-function openEditPopup() {
-    editPopup.classList.add("popup_active");
-}
-
 let closePopupButton = document.querySelector(".popup__escape-button");
-
-closePopupButton.addEventListener("click", closePopup);
-function closePopup() {
-    editPopup.classList.remove("popup_active");
+if (!closePopupButton) {
+    throw new Error("No closePopupButton!");
 }
+
+let editPopup = document.querySelector(".popup");
+if (!editPopup) {
+    throw new Error("No editPopup!");
+}
+
+// Open popup
+function openPopup(popup) {
+    popup.classList.add("popup_active");
+}
+
+// Close popup
+function closePopup(popup) {
+    popup.classList.remove("popup_active");
+}
+
+openEditPopupButton.addEventListener("click", function () {
+    openPopup(editPopup);
+});
+
+closePopupButton.addEventListener("click", function () {
+    closePopup(editPopup);
+});
 
 const user = {
     name: "Жак-Ив Кусто",
     description: "Исследователь океана",
 };
 
-const nameInput = document.querySelector("#input_name");
-nameInput.value = user.name;
-const jobInput = document.querySelector("#input_description");
-jobInput.value = user.description;
+let userName = document.querySelector(".profile__name");
+userName.textContent = user.name;
+
+let userDescription = document.querySelector(".profile__description");
+userDescription.textContent = user.description;
+
+let userNameInput = document.querySelector(".popup__form-name");
+userNameInput.value = user.name;
+
+let userDescriptionInput = document.querySelector(".popup__form-description");
+userDescriptionInput.value = user.description;
+
+///////
+
+userNameInput.addEventListener("input", function (event) {
+    let value = event.target.value;
+    userName.textContent = value;
+});
+userDescriptionInput.addEventListener("input", function (event) {
+    let value = event.target.value;
+    userDescription.textContent = value;
+});
+
+let formElement = document.querySelector(".popup__form");
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
-    const profileName = document.querySelector(".profile__name");
-    const profileDescription = document.querySelector(".profile__description");
-    profileName.textContent = user.name;
-    profileDescription.textContent = user.description;
+    userName.textContent = userNameInput.value;
+    userDescription.textContent = userDescriptionInput.value;
 }
 
-let formElement = document.querySelector(".popup__form");
 formElement.addEventListener("submit", handleFormSubmit);
