@@ -12,9 +12,8 @@
 -   @media запросы
 -   Методолгия БЭМ
 -   Файловая структура Nested
--   Языки HTML и CSS
 -   JavaScript для интерактивности
 -   Flexbox Верстка
 -   Работа с формами
 
-# Ссылка на проект: https://veronica57.github.io/mesto/
+#### Ссылка на проект: https://veronica57.github.io/mesto/
