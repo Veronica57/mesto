@@ -1,82 +1,13 @@
-.photo {
-    max-width: 880px;
-}
 
-/* @media (max-width: 1024px) {
-    .photo {
-        max-width: 880px;
-    }
-}
 
-@media (max-width: 768px) {
-    .photo {
-        max-width: 768px;
-    }
-}
 
-@media (max-width: 320px) {
-    .photo {
-        max-width: 320px;
-    }
-} */
 
-.photo__elements {
-    list-style-type: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
-    column-gap: 17px;
-    margin: 0 200px 0;
-}
 
-.photo__element {
-    max-width: 282px;
-    border-radius: 10px;
-    background-color: #fff;
-}
 
-.photo__image {
-    width: 282px;
-    height: 282px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
 
-.photo__signature {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    margin-bottom: 31px;
-    align-items: center;
-}
 
-.photo__name {
-    margin: 0;
-    padding-left: 21px;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
-    color: #000000;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
 
-.photo__like {
-    border: none;
-    background-image: url("./images/like_disabled.svg");
-    background-repeat: no-repeat;
-    width: 22px;
-    height: 19px;
-    padding-right: 30px;
-    background-size: contain;
-    background-color: #fff;
-}
 
-.photo__like:hover {
-    cursor: pointer;
-    background-image: url("./images/like_hover.svg");
-}
+
+
+
