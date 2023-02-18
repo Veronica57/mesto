@@ -9,7 +9,7 @@
     margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .footer__text {
         max-width: 282px;
         font-size: 14px;

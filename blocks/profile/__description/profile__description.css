@@ -20,7 +20,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .profile__description {
         max-width: 282px;
         font-size: 14px;

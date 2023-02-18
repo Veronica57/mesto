@@ -4,7 +4,7 @@
     padding-top: 45px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .header__logo {
         padding-left: 27px;
     }
@@ -12,9 +12,8 @@
 
 @media (max-width: 320px) {
     .header__logo {
-        width: 103.7px;
-        height: 24.4px;
-
+        width: 104px;
+        height: 24px;
         padding-top: 28px;
     }
 }
