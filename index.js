@@ -1,15 +1,15 @@
-let openEditPopupButton = document.querySelector(".profile__edit-button");
+const openEditPopupButton = document.querySelector(".profile__edit-button");
 
 if (!openEditPopupButton) {
     throw new Error("No openEditPopupButton!");
 }
 
-let closePopupButton = document.querySelector(".popup__escape-button");
+const closePopupButton = document.querySelector(".popup__exit");
 if (!closePopupButton) {
     throw new Error("No closePopupButton!");
 }
 
-let editPopup = document.querySelector(".popup");
+const editPopup = document.querySelector(".popup");
 if (!editPopup) {
     throw new Error("No editPopup!");
 }
@@ -49,29 +49,13 @@ userNameInput.value = user.name;
 let userDescriptionInput = document.querySelector(".popup__form-description");
 userDescriptionInput.value = user.description;
 
-///////
-
-userNameInput.addEventListener("input", function (event) {
-    let value = event.target.value;
-    userName.textContent = value;
-});
-userDescriptionInput.addEventListener("input", function (event) {
-    let value = event.target.value;
-    userDescription.textContent = value;
-});
-
-let formElement = document.querySelector(".popup__form");
+const formElement = document.querySelector(".popup__form");
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
     userName.textContent = userNameInput.value;
     userDescription.textContent = userDescriptionInput.value;
+    closePopup(editPopup);
 }
 
 formElement.addEventListener("submit", handleFormSubmit);
-
-// let saveButton = document.querySelector(".popup__save-button");
-// saveButton.onclick = function () {
-//     userName.textContent = userNameInput.value;
-//     userDescription.textContent = userDescriptionInput.value;
-// }
