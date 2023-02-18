@@ -69,3 +69,9 @@ function handleFormSubmit(evt) {
 }
 
 formElement.addEventListener("submit", handleFormSubmit);
+
+// let saveButton = document.querySelector(".popup__save-button");
+// saveButton.onclick = function () {
+//     userName.textContent = userNameInput.value;
+//     userDescription.textContent = userDescriptionInput.value;
+// }
