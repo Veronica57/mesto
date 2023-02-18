@@ -7,7 +7,6 @@
         <title>Место</title>
         <link rel="stylesheet" href="./pages/index.css" />
         <script src="index.js" defer></script>
-        <link rel="stylesheet" href="style.css" />
     </head>
     <body class="page">
         <header class="header">
@@ -101,31 +100,26 @@
         <footer class="footer">
             <p class="footer__text">&COPY; 2023 Mesto Russia</p>
         </footer>
-        <!-- 
-        <div class="popup">
-            <div class="popup__form-container">
-                <button class="popup__escape-button" type="button"></button>
+
+        <section class="popup">
+            <div class="popup__container">
                 <form action="" class="popup__form">
+                    <button class="popup__exit"></button>
                     <h2 class="popup__form-title">Редактировать профиль</h2>
                     <fieldset class="popup__form-fieldset">
                         <input
                             type="text"
                             name="name"
-                            class="popup__form-input popup__form-name"
-                            required
-                            placeholder="Имя" />
+                            class="popup__form-input popup__form-name" />
                         <input
                             type="text"
-                            name="description"
-                            class="popup__form-input popup__form-description"
-                            required
-                            placeholder="Описание" />
+                            class="popup__form-input popup__form-description" />
                     </fieldset>
-                    <button class="popup__save-button" type="submit" disabled>
+                    <button class="popup__form-save-button" type="submit">
                         Сохранить
                     </button>
                 </form>
             </div>
-        </div> -->
+        </section>
     </body>
 </html>

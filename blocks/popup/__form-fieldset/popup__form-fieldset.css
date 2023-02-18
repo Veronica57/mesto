@@ -8,7 +8,7 @@
     margin: 54px 36px 48px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .popup__form-fieldset {
         margin: 75px 22px 45px;
         max-width: 238px;
