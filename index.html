@@ -16,109 +16,109 @@
                 class="header__logo" />
         </header>
 
-        <section class="profile">
-            <div class="profile__avatar">
+        <main>
+            <section class="profile">
                 <img
                     src="./images/жак_кусто.jpg"
                     alt="Жан-Ив Кусто"
                     class="profile__avatar-image" />
-            </div>
-            <div class="profile__info">
-                <h1 class="profile__name"></h1>
-                <p class="profile__description"></p>
-                <button class="profile__edit-button" type="button"></button>
-            </div>
-            <button class="profile__add-button" type="button"></button>
-        </section>
+                <div class="profile__info">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <p class="profile__description">Исследователь океана</p>
+                    <button class="profile__edit-button" type="button"></button>
+                </div>
+                <button class="profile__add-button" type="button"></button>
+            </section>
 
-        <section class="photo">
-            <ul class="photo__elements">
-                <li class="photo__element">
-                    <img
-                        src="./images/домбай.jpg"
-                        alt="Домбай"
-                        class="photo__image" />
-                    <div class="photo__signature">
-                        <h3 class="photo__name">Домбай</h3>
-                        <button class="photo__like"></button>
-                    </div>
-                </li>
-                <li class="photo__element">
-                    <img
-                        src="./images/лос_анджелес.jpg"
-                        alt="Лос-Анджелес"
-                        class="photo__image" />
-                    <div class="photo__signature">
-                        <h3 class="photo__name">Лос-Анджелес</h3>
-                        <button class="photo__like"></button>
-                    </div>
-                </li>
-                <li class="photo__element">
-                    <img
-                        src="./images/гора_эльбрус.jpg"
-                        alt="Гора Эльбрус"
-                        class="photo__image" />
-                    <div class="photo__signature">
-                        <h3 class="photo__name">Гора Эльбрус</h3>
-                        <button class="photo__like"></button>
-                    </div>
-                </li>
-                <li class="photo__element">
-                    <img
-                        src="./images/стамбул.jpg"
-                        alt="Стамбул"
-                        class="photo__image" />
-                    <div class="photo__signature">
-                        <h3 class="photo__name">Стамбул</h3>
-                        <button class="photo__like"></button>
-                    </div>
-                </li>
-                <li class="photo__element">
-                    <img
-                        src="./images/карачаевск.jpg"
-                        alt="Карачаевск"
-                        class="photo__image" />
-                    <div class="photo__signature">
-                        <h3 class="photo__name">Карачаевск</h3>
-                        <button class="photo__like"></button>
-                    </div>
-                </li>
-                <li class="photo__element">
-                    <img
-                        src="./images/тайланд.jpg"
-                        alt="Тайланд"
-                        class="photo__image" />
-                    <div class="photo__signature">
-                        <h3 class="photo__name">Тайланд</h3>
-                        <button class="photo__like"></button>
-                    </div>
-                </li>
-            </ul>
-        </section>
+            <section class="photo">
+                <ul class="photo__elements">
+                    <li class="photo__element">
+                        <img
+                            src="./images/домбай.jpg"
+                            alt="Домбай"
+                            class="photo__image" />
+                        <div class="photo__signature">
+                            <h3 class="photo__name">Домбай</h3>
+                            <button class="photo__like"></button>
+                        </div>
+                    </li>
+                    <li class="photo__element">
+                        <img
+                            src="./images/лос_анджелес.jpg"
+                            alt="Лос-Анджелес"
+                            class="photo__image" />
+                        <div class="photo__signature">
+                            <h3 class="photo__name">Лос-Анджелес</h3>
+                            <button class="photo__like"></button>
+                        </div>
+                    </li>
+                    <li class="photo__element">
+                        <img
+                            src="./images/гора_эльбрус.jpg"
+                            alt="Гора Эльбрус"
+                            class="photo__image" />
+                        <div class="photo__signature">
+                            <h3 class="photo__name">Гора Эльбрус</h3>
+                            <button class="photo__like"></button>
+                        </div>
+                    </li>
+                    <li class="photo__element">
+                        <img
+                            src="./images/стамбул.jpg"
+                            alt="Стамбул"
+                            class="photo__image" />
+                        <div class="photo__signature">
+                            <h3 class="photo__name">Стамбул</h3>
+                            <button class="photo__like"></button>
+                        </div>
+                    </li>
+                    <li class="photo__element">
+                        <img
+                            src="./images/карачаевск.jpg"
+                            alt="Карачаевск"
+                            class="photo__image" />
+                        <div class="photo__signature">
+                            <h3 class="photo__name">Карачаевск</h3>
+                            <button class="photo__like"></button>
+                        </div>
+                    </li>
+                    <li class="photo__element">
+                        <img
+                            src="./images/тайланд.jpg"
+                            alt="Тайланд"
+                            class="photo__image" />
+                        <div class="photo__signature">
+                            <h3 class="photo__name">Тайланд</h3>
+                            <button class="photo__like"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="popup">
+                <div class="popup__container">
+                    <form action="" class="popup__form">
+                        <button class="popup__exit"></button>
+                        <h2 class="popup__form-title">Редактировать профиль</h2>
+                        <fieldset class="popup__form-fieldset">
+                            <input
+                                type="text"
+                                name="name"
+                                class="popup__form-input popup__form-name" />
+                            <input
+                                type="text"
+                                class="popup__form-input popup__form-description" />
+                        </fieldset>
+                        <button class="popup__form-save-button" type="submit">
+                            Сохранить
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
 
         <footer class="footer">
             <p class="footer__text">&COPY; 2023 Mesto Russia</p>
         </footer>
-
-        <section class="popup">
-            <div class="popup__container">
-                <form action="" class="popup__form">
-                    <button class="popup__exit"></button>
-                    <h2 class="popup__form-title">Редактировать профиль</h2>
-                    <fieldset class="popup__form-fieldset">
-                        <input
-                            type="text"
-                            name="name"
-                            class="popup__form-input popup__form-name" />
-                        <input
-                            type="text"
-                            class="popup__form-input popup__form-description" />
-                    </fieldset>
-                    <button class="popup__form-save-button" type="submit">
-                        Сохранить
-                    </button>
-                </form>
-            </div>
-        </section>
     </body>
 </html>
