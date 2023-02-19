@@ -37,16 +37,16 @@ const user = {
     description: "Исследователь океана",
 };
 
-let userName = document.querySelector(".profile__name");
-userName.textContent = user.name;
+const userName = document.querySelector(".profile__name");
 
-let userDescription = document.querySelector(".profile__description");
-userDescription.textContent = user.description;
+const userDescription = document.querySelector(".profile__description");
 
-let userNameInput = document.querySelector(".popup__form-name");
+const userNameInput = document.querySelector(".popup__form-input_name");
 userNameInput.value = user.name;
 
-let userDescriptionInput = document.querySelector(".popup__form-description");
+const userDescriptionInput = document.querySelector(
+    ".popup__form-input_description"
+);
 userDescriptionInput.value = user.description;
 
 const formElement = document.querySelector(".popup__form");
