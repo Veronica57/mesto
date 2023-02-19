@@ -5,6 +5,7 @@
     transition: 0.6s linear;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     margin: 0 30px 0 0;
 }
 

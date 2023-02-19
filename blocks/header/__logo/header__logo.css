@@ -3,6 +3,8 @@
     height: 33px;
     padding-top: 45px;
     padding-bottom: 41px;
+    object-fit: contain;
+    object-position: center;
 }
 
 @media (max-width: 1024px) {
