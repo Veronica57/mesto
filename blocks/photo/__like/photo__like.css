@@ -11,5 +11,5 @@
 
 .photo__like:hover {
     cursor: pointer;
-    background-image: url("../../../images/like_hover.svg");
+    opacity: 0.6;
 }
