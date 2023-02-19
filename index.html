@@ -38,8 +38,8 @@
                             alt="Домбай"
                             class="photo__image" />
                         <div class="photo__signature">
-                            <h3 class="photo__name">Домбай</h3>
-                            <button class="photo__like"></button>
+                            <h2 class="photo__name">Домбай</h2>
+                            <button class="photo__like" type="button"></button>
                         </div>
                     </li>
                     <li class="photo__element">
@@ -48,8 +48,8 @@
                             alt="Лос-Анджелес"
                             class="photo__image" />
                         <div class="photo__signature">
-                            <h3 class="photo__name">Лос-Анджелес</h3>
-                            <button class="photo__like"></button>
+                            <h2 class="photo__name">Лос-Анджелес</h2>
+                            <button class="photo__like" type="button"></button>
                         </div>
                     </li>
                     <li class="photo__element">
@@ -58,8 +58,8 @@
                             alt="Гора Эльбрус"
                             class="photo__image" />
                         <div class="photo__signature">
-                            <h3 class="photo__name">Гора Эльбрус</h3>
-                            <button class="photo__like"></button>
+                            <h2 class="photo__name">Гора Эльбрус</h2>
+                            <button class="photo__like" type="button"></button>
                         </div>
                     </li>
                     <li class="photo__element">
@@ -68,8 +68,8 @@
                             alt="Стамбул"
                             class="photo__image" />
                         <div class="photo__signature">
-                            <h3 class="photo__name">Стамбул</h3>
-                            <button class="photo__like"></button>
+                            <h2 class="photo__name">Стамбул</h2>
+                            <button class="photo__like" type="button"></button>
                         </div>
                     </li>
                     <li class="photo__element">
@@ -78,8 +78,8 @@
                             alt="Карачаевск"
                             class="photo__image" />
                         <div class="photo__signature">
-                            <h3 class="photo__name">Карачаевск</h3>
-                            <button class="photo__like"></button>
+                            <h2 class="photo__name">Карачаевск</h2>
+                            <button class="photo__like" type="button"></button>
                         </div>
                     </li>
                     <li class="photo__element">
@@ -88,33 +88,38 @@
                             alt="Тайланд"
                             class="photo__image" />
                         <div class="photo__signature">
-                            <h3 class="photo__name">Тайланд</h3>
-                            <button class="photo__like"></button>
+                            <h2 class="photo__name">Тайланд</h2>
+                            <button class="photo__like" type="button"></button>
                         </div>
                     </li>
                 </ul>
             </section>
 
-            <section class="popup">
+            <div class="popup">
                 <div class="popup__container">
-                    <form action="" class="popup__form">
-                        <button class="popup__exit"></button>
+                    <form action="#" class="popup__form" name="popup-form">
+                        <button class="popup__exit" type="button"></button>
                         <h2 class="popup__form-title">Редактировать профиль</h2>
                         <fieldset class="popup__form-fieldset">
                             <input
                                 type="text"
-                                name="name"
-                                class="popup__form-input popup__form-name" />
+                                name="user-name"
+                                class="popup__form-input popup__form-name"
+                                required
+                                placeholder="Имя пользователя" />
                             <input
                                 type="text"
-                                class="popup__form-input popup__form-description" />
+                                name="user-description"
+                                class="popup__form-input popup__form-description"
+                                required
+                                placeholder="Описание пользователя" />
                         </fieldset>
                         <button class="popup__form-save-button" type="submit">
                             Сохранить
                         </button>
                     </form>
                 </div>
-            </section>
+            </div>
         </main>
 
         <footer class="footer">
