@@ -1,13 +1,5 @@
 .header {
     max-width: 880px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 41px;
-}
-
-@media (max-width: 320px) {
-    .header {
-        gap: 32px;
-    }
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }

@@ -2,6 +2,7 @@
     width: 142px;
     height: 33px;
     padding-top: 45px;
+    padding-bottom: 41px;
 }
 
 @media (max-width: 1024px) {
@@ -15,5 +16,6 @@
         width: 104px;
         height: 24px;
         padding-top: 28px;
+        padding-bottom: 32px;
     }
 }
