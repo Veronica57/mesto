@@ -65,15 +65,15 @@ const initialCards = [
 ];
 
 const photo = document.querySelector(".photo");
-function createCard(item) {
+function createCard(card) {
     const newCard = document
         .querySelector("#photoTemplate")
         .textContent.cloneNode(true);
     const cardHeading = newCard.querySelector(".photo__name");
-    cardHeading.textContent = initialCards.name;
+    cardHeading.textContent = card.name;
     const cardImage = newCard.querySelector(".photo__element");
-    cardImage.setAttribute("src", initialCards.link);
-    cardImage.setAttribute("alt", initialCards.name);
+    cardImage.setAttribute("src", card.link);
+    cardImage.setAttribute("alt", card.name);
     const likeButton = newCard.querySelector(".photo__like");
     likeButton.addEventListener("like", addDeleteLike);
     photo.append(newCard);
