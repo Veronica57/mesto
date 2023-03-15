@@ -64,23 +64,34 @@ const initialCards = [
     },
 ];
 
-const photo = document.querySelector(".photo");
-function createCard(card) {
-    const newCard = document
+const photos = document.querySelector(".photo__elements");
+function createPhotos(photo) {
+    const newPhoto = document
         .querySelector("#photoTemplate")
-        .textContent.cloneNode(true);
-    const cardHeading = newCard.querySelector(".photo__name");
-    cardHeading.textContent = card.name;
-    const cardImage = newCard.querySelector(".photo__element");
-    cardImage.setAttribute("src", card.link);
-    cardImage.setAttribute("alt", card.name);
-    const likeButton = newCard.querySelector(".photo__like");
-    likeButton.addEventListener("like", addDeleteLike);
-    photo.append(newCard);
+        .content.cloneNode(true);
+    const photoHeading = newPhoto.querySelector(".photo__name");
+    photoHeading.textContent = photo.name;
+    const photoImage = newPhoto.querySelector(".photo__image");
+    photoImage.setAttribute("src", photo.link);
+    photoImage.setAttribute("alt", `Фотография ${photo.name}`);
+    const deleteButton = newPhoto.querySelector(".photo__delete");
+    deleteButton.addEventListener("click", handleDeleteButton);
+    const likeButton = newPhoto.querySelector(".photo__like");
+    likeButton.addEventListener("click", handleLikeButton);
+    photos.append(newPhoto);
 }
 
-initialCards.forEach(createCard);
+initialCards.forEach(createPhotos);
 
-function addDeleteLike(like) {
+function handleDeleteButton(event) {
+    event.preventDefault();
+    const button = event.target;
+    const photo = button.closest(".photo__element");
+    photo.remove();
+}
+
+function handleLikeButton(event) {
+    event.preventDefault();
+    const like = event.target;
     like.classList.toggle("photo__like_active");
 }

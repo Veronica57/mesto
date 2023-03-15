@@ -21,6 +21,7 @@
 @import url(../blocks/photo/__elements/photo__elemets.css);
 @import url(../blocks/photo/__element/photo__element.css);
 @import url(../blocks/photo/photo.css);
+@import url(../blocks/photo/__delete/photo__delete.css);
 /* Footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
