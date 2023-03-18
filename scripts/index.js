@@ -101,7 +101,7 @@ function handleLikeButton(event) {
 const openAddPopupButton = document.querySelector(".profile__add-button");
 const imageNameInput = document.querySelector(".popup__form-input_image_name");
 const imageLinkInput = document.querySelector(".popup__form-input_image_link");
-const addImagePopup = document.querySelector(".popup__add-button");
+const addImagePopup = document.querySelector(".add-popup");
 const addImageExit = document.querySelector(".popup__exit-image");
 const addFormImage = document.querySelector(".popup__form-image");
 
@@ -126,7 +126,7 @@ function handleFormImageSubmit(event) {
 
 // show image
 const showPhotoImage = document.querySelectorAll(".photo__image");
-const showImagePopup = document.querySelector(".popup__show-image");
+const showImagePopup = document.querySelector(".show-popup");
 const popupImage = document.querySelector(".popup__image");
 const popupImageName = document.querySelector(".popup__image-name");
 
