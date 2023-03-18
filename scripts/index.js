@@ -65,20 +65,21 @@ const initialCards = [
 ];
 
 const photos = document.querySelector(".photo__elements");
+
 function createPhotos(photo) {
     const newPhoto = document
         .querySelector("#photoTemplate")
         .content.cloneNode(true);
     const photoHeading = newPhoto.querySelector(".photo__name");
-    photoHeading.textContent = photo.name;
+    const deleteButton = newPhoto.querySelector(".photo__delete");
+    const likeButton = newPhoto.querySelector(".photo__like");
     const photoImage = newPhoto.querySelector(".photo__image");
+    photoHeading.textContent = photo.name;
     photoImage.setAttribute("src", photo.link);
     photoImage.setAttribute("alt", `Фотография ${photo.name}`);
-    const deleteButton = newPhoto.querySelector(".photo__delete");
     deleteButton.addEventListener("click", handleDeleteButton);
-    const likeButton = newPhoto.querySelector(".photo__like");
     likeButton.addEventListener("click", handleLikeButton);
-    photos.append(newPhoto);
+    photos.prepend(newPhoto);
 }
 
 initialCards.forEach(createPhotos);
@@ -95,3 +96,50 @@ function handleLikeButton(event) {
     const like = event.target;
     like.classList.toggle("photo__like_active");
 }
+
+// add card
+const openAddPopupButton = document.querySelector(".profile__add-button");
+const imageNameInput = document.querySelector(".popup__form-input_image_name");
+const imageLinkInput = document.querySelector(".popup__form-input_image_link");
+const addImagePopup = document.querySelector(".popup__add-button");
+const addImageExit = document.querySelector(".popup__exit-image");
+const addFormImage = document.querySelector(".popup__form-image");
+
+openAddPopupButton.addEventListener("click", function () {
+    openPopup(addImagePopup);
+});
+
+addImageExit.addEventListener("click", function () {
+    closePopup(addImagePopup);
+});
+
+addFormImage.addEventListener("submit", handleFormImageSubmit);
+function handleFormImageSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.querySelector(".popup__form-input_image_name").value;
+    const link = form.querySelector(".popup__form-input_image_link").value;
+    const card = { name, link };
+    createPhotos(card);
+    closePopup(addImagePopup);
+}
+
+// show image
+const showPhotoImage = document.querySelectorAll(".photo__image");
+const showImagePopup = document.querySelector(".popup__show-image");
+const popupImage = document.querySelector(".popup__image");
+const popupImageName = document.querySelector(".popup__image-name");
+
+showPhotoImage.forEach((element) =>
+    element.addEventListener("click", showImage)
+);
+
+function showImage(photo) {
+    popupImage.src = photo.link;
+    popupImage.alt = photo.name;
+    popupImageName.textContent = photo.name;
+    openPopup(showImagePopup);
+}
+
+const popupImageClose = document.querySelector(".popup__image-close");
+popupImageClose.addEventListener("click", () => closePopup(showImagePopup));
