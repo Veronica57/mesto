@@ -1,6 +1,6 @@
 .photo__like {
-    border: none;
     background-image: url("../../../images/like_disabled.svg");
+    border: none;
     background-repeat: no-repeat;
     width: 22px;
     height: 19px;

@@ -67,9 +67,10 @@ const initialCards = [
 const photos = document.querySelector(".photo__elements");
 
 function createPhotos(photo) {
-    const newPhoto = document
-        .querySelector("#photoTemplate")
-        .content.cloneNode(true);
+    const photoTemplate = document.querySelector("#photoTemplate").content;
+    const newPhoto = photoTemplate
+        .querySelector(".photo__element")
+        .cloneNode(true);
     const photoHeading = newPhoto.querySelector(".photo__name");
     const deleteButton = newPhoto.querySelector(".photo__delete");
     const likeButton = newPhoto.querySelector(".photo__like");
@@ -82,8 +83,10 @@ function createPhotos(photo) {
     photos.prepend(newPhoto);
 }
 
+//Creation cards with array method
 initialCards.forEach(createPhotos);
 
+//Delete button function
 function handleDeleteButton(event) {
     event.preventDefault();
     const button = event.target;
@@ -91,10 +94,10 @@ function handleDeleteButton(event) {
     photo.remove();
 }
 
+//Like button function
 function handleLikeButton(event) {
     event.preventDefault();
-    const like = event.target;
-    like.classList.toggle("photo__like_active");
+    event.target.classList.toggle("photo__like_active");
 }
 
 // add card
@@ -134,6 +137,7 @@ showPhotoImage.forEach((element) =>
     element.addEventListener("click", showImage)
 );
 
+//Function show image
 function showImage(photo) {
     popupImage.src = photo.link;
     popupImage.alt = photo.name;
