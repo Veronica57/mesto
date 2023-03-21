@@ -52,7 +52,7 @@
                     <form action="#" class="popup__form" name="popup-form">
                         <button class="popup__exit" type="button"></button>
                         <h2 class="popup__form-title">Редактировать профиль</h2>
-                        <fieldset class="popup__form-fieldset">
+                        <div class="popup__form-fieldset">
                             <input
                                 type="text"
                                 name="user-name"
@@ -65,7 +65,7 @@
                                 class="popup__form-input popup__form-input_user_description"
                                 required
                                 placeholder="Описание пользователя" />
-                        </fieldset>
+                        </div>
                         <button class="popup__form-save-button" type="submit">
                             Сохранить
                         </button>
@@ -83,7 +83,7 @@
                             class="popup__exit popup__exit-image"
                             type="button"></button>
                         <h2 class="popup__form-title">Новое Место</h2>
-                        <fieldset class="popup__form-fieldset">
+                        <div class="popup__form-fieldset">
                             <input
                                 type="text"
                                 name="image-name"
@@ -96,7 +96,7 @@
                                 class="popup__form-input popup__form-input_image_link"
                                 required
                                 placeholder="Ссылка на картинку" />
-                        </fieldset>
+                        </div>
                         <button class="popup__form-save-button" type="submit">
                             Сохранить
                         </button>
@@ -107,9 +107,11 @@
             <!-- Show Image             -->
             <div class="popup show-popup">
                 <div class="popup__image-container">
-                    <button class="popup__image-close" type="button"></button>
-                    <img class="popup__image" />
-                    <p class="popup__image-name"></p>
+                    <button class="popup__exit" type="button"></button>
+                    <div>
+                        <img class="popup__image" />
+                        <p class="popup__image-name"></p>
+                    </div>
                 </div>
             </div>
         </main>
