@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Место</title>
         <link rel="stylesheet" href="./pages/index.css" />
+        <script src="./scripts/card.js" defer></script>
         <script src="./scripts/index.js" defer></script>
     </head>
     <body class="page">
@@ -49,7 +50,11 @@
             <!-- edit button             -->
             <div class="popup edit-popup">
                 <div class="popup__container">
-                    <form action="#" class="popup__form" name="popup-form">
+                    <form
+                        action="#"
+                        class="popup__form"
+                        name="popup-form"
+                        id="popupEditForm">
                         <button class="popup__exit" type="button"></button>
                         <h2 class="popup__form-title">Редактировать профиль</h2>
                         <div class="popup__form-fieldset">
@@ -103,9 +108,8 @@
                     </form>
                 </div>
             </div>
-
             <!-- Show Image             -->
-            <div class="popup show-popup">
+            <div class="popup popup_image-background show-popup">
                 <div class="popup__image-container">
                     <button class="popup__exit" type="button"></button>
                     <div>
