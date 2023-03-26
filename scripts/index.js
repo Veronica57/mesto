@@ -30,15 +30,15 @@ function openPopup(popup) {
     popup.classList.add("popup_active");
 }
 // Close popup
-function closePopup(event) {
-    event.target.closest(".popup").classList.remove("popup_active");
+function closePopup(popup) {
+    popup.classList.remove("popup_active");
 }
 //User profile submit
 function handleFormSubmit(event) {
     event.preventDefault();
     userName.textContent = userNameInput.value;
     userDescription.textContent = userDescriptionInput.value;
-    closePopup(event);
+    closePopup(editingPopup);
 }
 //Delete button function
 function handleDeleteButton(event) {
@@ -56,7 +56,7 @@ function handleFormImageSubmit(event) {
     const form = event.target;
     const card = { imageName, imageLink };
     prependPhoto(card);
-    closePopup(event);
+    closePopup(addingImagePopup);
     form.reset();
 }
 //Create photo function
@@ -93,7 +93,7 @@ function showImage(photo) {
 allPopups.forEach((popup) => {
     popup.addEventListener("click", (event) => {
         if (event.target !== event.currentTarget) return;
-        closePopup(event);
+        closePopup(popup);
     });
 });
 editingForm.addEventListener("submit", handleFormSubmit);
@@ -102,9 +102,12 @@ editingButton.addEventListener("click", () => {
     userDescriptionInput.value = userDescription.textContent;
     openPopup(editingPopup);
 });
-closingPopupButton.forEach((exit) =>
-    exit.addEventListener("click", closePopup)
-);
+// close all buttons
+closingPopupButton.forEach((exit) => {
+    const button = exit.closest(".popup");
+    exit.addEventListener("click", () => closePopup(button));
+});
+//open image add popup
 addingButton.addEventListener("click", () => {
     openPopup(addingImagePopup);
 });
