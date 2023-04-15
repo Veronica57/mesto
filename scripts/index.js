@@ -121,5 +121,9 @@ closingPopupButton.forEach((exit) => {
 //open image add popup
 addingButton.addEventListener("click", () => {
     openPopup(addingImagePopup);
+    const submitButton = addingFormImage.querySelector(".popup__button");
+    submitButton.classList.add("popup__button_disabled");
+    submitButton.disabled = "true";
 });
+
 addingFormImage.addEventListener("submit", handleFormImageSubmit);
