@@ -30,7 +30,7 @@ const showInputError = (form, input, errorMessage, inputSelector) => {
 const hideInputError = (form, input, inputSelector) => {
     input.classList.remove("popup__input_type_error"); //"popup__input_type_error"
     const errorInput = form.querySelector(
-        `${inputSelector}_${input.name}-error`
+        `${inputSelector}-${input.name}-error`
     );
     errorInput.textContent = "";
 };
