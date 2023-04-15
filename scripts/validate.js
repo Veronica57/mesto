@@ -9,7 +9,7 @@ const configValidation = {
 const showInputError = (form, input, errorMessage, inputSelector) => {
     input.classList.add("popup__input_type_error"); // inputErrorClass
     const errorInput = form.querySelector(
-        `${inputSelector}_${input.name}-error`
+        `${inputSelector}-${input.name}-error`
     );
     errorInput.textContent = errorMessage;
 };

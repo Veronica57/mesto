@@ -4,7 +4,9 @@ const userName = document.querySelector(".profile__name");
 const userDescription = document.querySelector(".profile__description");
 const addingButton = document.querySelector(".profile__add-button");
 //popup
-const closingPopupButton = document.querySelectorAll(".popup__exit");
+const closingPopupButton = Array.from(
+    document.querySelectorAll(".popup__exit")
+);
 const editingPopup = document.querySelector(".edit-popup");
 const userNameInput = document.querySelector(".popup__input_user_name");
 const userDescriptionInput = document.querySelector(
