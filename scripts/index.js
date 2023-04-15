@@ -6,32 +6,41 @@ const addingButton = document.querySelector(".profile__add-button");
 //popup
 const closingPopupButton = document.querySelectorAll(".popup__exit");
 const editingPopup = document.querySelector(".edit-popup");
-const userNameInput = document.querySelector(".popup__form-input_user_name");
+const userNameInput = document.querySelector(".popup__input_user_name");
 const userDescriptionInput = document.querySelector(
-    ".popup__form-input_user_description"
+    ".popup__input_user_description"
 );
 const editingForm = document.querySelector("#popupEditForm");
-const imageNameInput = document.querySelector(".popup__form-input_image_name");
-const imageLinkInput = document.querySelector(".popup__form-input_image_link");
+const imageNameInput = document.querySelector(".popup__input_image_name");
+const imageLinkInput = document.querySelector(".popup__input_image_link");
 const addingImagePopup = document.querySelector(".add-popup");
 const addingFormImage = document.querySelector(".popup__form-image");
 const showingImagePopup = document.querySelector(".show-popup");
 const popupImage = document.querySelector(".popup__image");
 const popupImageName = document.querySelector(".popup__image-name");
-const allPopups = document.querySelectorAll(".popup");
+const allPopups = Array.from(document.querySelectorAll(".popup"));
 //photo
 const photosContainer = document.querySelector(".photo__elements");
 const photoTemplate = document.querySelector("#photoTemplate").content;
 // image and link values from form
-const imageName = document.querySelector(".popup__form-input_image_name").value;
-const imageLink = document.querySelector(".popup__form-input_image_link").value;
+const imageName = document.querySelector(".popup__input_image_name").value;
+const imageLink = document.querySelector(".popup__input_image_link").value;
+//Function close by escape button
+function closePopupByEscapeButton(event) {
+    if (event.key === "Escape")
+        closePopup(
+            allPopups.find((popup) => popup.classList.contains("popup_active"))
+        );
+}
 // Open popup
 function openPopup(popup) {
     popup.classList.add("popup_active");
+    window.addEventListener("keydown", closePopupByEscapeButton);
 }
 // Close popup
 function closePopup(popup) {
     popup.classList.remove("popup_active");
+    window.removeEventListener("keydown", closePopupByEscapeButton);
 }
 //User profile submit
 function handleFormSubmit(event) {

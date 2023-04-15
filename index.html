@@ -55,24 +55,37 @@
                         action="#"
                         class="popup__form"
                         name="popup-form"
-                        id="popupEditForm">
+                        id="popupEditForm"
+                        novalidate>
                         <button class="popup__exit" type="button"></button>
                         <h2 class="popup__form-title">Редактировать профиль</h2>
                         <div class="popup__form-fieldset">
-                            <input
-                                type="text"
-                                name="user-name"
-                                class="popup__form-input popup__form-input_user_name"
-                                required
-                                placeholder="Имя пользователя" />
-                            <input
-                                type="text"
-                                name="user-description"
-                                class="popup__form-input popup__form-input_user_description"
-                                required
-                                placeholder="Описание пользователя" />
+                            <div class="popup__input-container">
+                                <input
+                                    type="text"
+                                    name="user_name"
+                                    class="popup__input popup__input_user_name"
+                                    required
+                                    minlength="2"
+                                    maxlength="40"
+                                    placeholder="Имя пользователя" />
+                                <span
+                                    class="popup__input-error popup__input_user_name-error"></span>
+                            </div>
+                            <div class="popup__input-container">
+                                <input
+                                    type="text"
+                                    name="user_description"
+                                    class="popup__input popup__input_user_description"
+                                    required
+                                    minlength="2"
+                                    maxlength="200"
+                                    placeholder="Описание пользователя" />
+                                <span
+                                    class="popup__input-error popup__input_user_description-error"></span>
+                            </div>
                         </div>
-                        <button class="popup__form-save-button" type="submit">
+                        <button class="popup__button" type="submit">
                             Сохранить
                         </button>
                     </form>
@@ -84,26 +97,37 @@
                     <form
                         action="#"
                         class="popup__form popup__form-image"
-                        name="popup-form">
+                        name="popup-form"
+                        novalidate>
                         <button
                             class="popup__exit popup__exit-image"
                             type="button"></button>
                         <h2 class="popup__form-title">Новое Место</h2>
                         <div class="popup__form-fieldset">
-                            <input
-                                type="text"
-                                name="image-name"
-                                class="popup__form-input popup__form-input_image_name"
-                                required
-                                placeholder="Название" />
-                            <input
-                                type="text"
-                                name="image-link"
-                                class="popup__form-input popup__form-input_image_link"
-                                required
-                                placeholder="Ссылка на картинку" />
+                            <div class="popup__input-container">
+                                <input
+                                    type="text"
+                                    name="image_name"
+                                    class="popup__input popup__input_image_name"
+                                    required
+                                    minlength="2"
+                                    maxlength="30"
+                                    placeholder="Название" />
+                                <span
+                                    class="popup__input-error popup__input_image_name-error"></span>
+                            </div>
+                            <div class="popup__input-container">
+                                <input
+                                    type="url"
+                                    name="image_link"
+                                    class="popup__input popup__input_image_link"
+                                    required
+                                    placeholder="Ссылка на картинку" />
+                                <span
+                                    class="popup__input-error popup__input_image_link-error"></span>
+                            </div>
                         </div>
-                        <button class="popup__form-save-button" type="submit">
+                        <button class="popup__button" type="submit">
                             Сохранить
                         </button>
                     </form>
