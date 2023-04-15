@@ -25,8 +25,8 @@ const allPopups = Array.from(document.querySelectorAll(".popup"));
 const photosContainer = document.querySelector(".photo__elements");
 const photoTemplate = document.querySelector("#photoTemplate").content;
 // image and link values from form
-const imageName = document.querySelector(".popup__input_image_name").value;
-const imageLink = document.querySelector(".popup__input_image_link").value;
+const imageName = addingFormImage.querySelector(".popup__input_image_name");
+const imageLink = addingFormImage.querySelector(".popup__input_image_link");
 //Function close by escape button
 function closePopupByEscapeButton(event) {
     if (event.key === "Escape")
@@ -65,13 +65,13 @@ function handleLikeButton(event) {
 function handleFormImageSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const card = { imageName, imageLink };
+    const card = { name: imageName.value, link: imageLink.value };
     prependPhoto(card);
     closePopup(addingImagePopup);
     form.reset();
 }
 //Create photo function
-function createPhotos(photo) {
+function createPhotos(name, link) {
     const newPhoto = photoTemplate
         .querySelector(".photo__element")
         .cloneNode(true);
@@ -79,25 +79,25 @@ function createPhotos(photo) {
     const deletingButton = newPhoto.querySelector(".photo__delete");
     const likingButton = newPhoto.querySelector(".photo__like");
     const photoImage = newPhoto.querySelector(".photo__image");
-    photoHeading.textContent = photo.name;
-    photoImage.setAttribute("src", photo.link);
-    photoImage.setAttribute("alt", `Фотография ${photo.name}`);
+    photoHeading.textContent = name;
+    photoImage.setAttribute("src", link);
+    photoImage.setAttribute("alt", `Фотография ${name}`);
     deletingButton.addEventListener("click", handleDeleteButton);
     likingButton.addEventListener("click", handleLikeButton);
-    photoImage.addEventListener("click", () => showImage(photo));
+    photoImage.addEventListener("click", () => showImage(name, link));
     return newPhoto;
 }
-function prependPhoto(photo) {
-    const photoCard = createPhotos(photo);
+function prependPhoto({ name, link }) {
+    const photoCard = createPhotos(name, link);
     photosContainer.prepend(photoCard);
 }
 //Creation cards with array method
 initialCards.forEach(prependPhoto);
 //Function show image
-function showImage(photo) {
-    popupImage.src = photo.link;
-    popupImage.alt = photo.name;
-    popupImageName.textContent = photo.name;
+function showImage(name, link) {
+    popupImage.src = link;
+    popupImage.alt = name;
+    popupImageName.textContent = name;
     openPopup(showingImagePopup);
 }
 //close all popups
