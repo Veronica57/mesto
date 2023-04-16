@@ -36,7 +36,7 @@ const showInputError = (
     inputSelector,
     inputErrorClass
 ) => {
-    input.classList.add(inputErrorClass); // inputErrorClass
+    input.classList.add(inputErrorClass);
     const errorInput = form.querySelector(
         `${inputSelector}-${input.name}-error`
     );

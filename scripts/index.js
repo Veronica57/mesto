@@ -4,7 +4,7 @@ const userName = document.querySelector(".profile__name");
 const userDescription = document.querySelector(".profile__description");
 const addingButton = document.querySelector(".profile__add-button");
 //popup
-const closingPopupButton = Array.from(
+const closingPopupButtons = Array.from(
     document.querySelectorAll(".popup__exit")
 );
 const editingPopup = document.querySelector(".edit-popup");
@@ -114,7 +114,7 @@ editingButton.addEventListener("click", () => {
     openPopup(editingPopup);
 });
 // close all buttons
-closingPopupButton.forEach((exit) => {
+closingPopupButtons.forEach((exit) => {
     const button = exit.closest(".popup");
     exit.addEventListener("click", () => closePopup(button));
 });
