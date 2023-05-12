@@ -17,8 +17,6 @@ const userDescriptionInput = document.querySelector(
     ".popup__input_user_description"
 );
 const editingForm = document.querySelector("#popupEditForm");
-// const imageNameInput = document.querySelector(".popup__input_image_name");
-// const imageLinkInput = document.querySelector(".popup__input_image_link");
 const addingImagePopup = document.querySelector(".add-popup");
 const addingFormImage = document.querySelector(".popup__form-image");
 const showingImagePopup = document.querySelector(".show-popup");
@@ -27,7 +25,8 @@ const popupImageName = document.querySelector(".popup__image-name");
 const allPopups = Array.from(document.querySelectorAll(".popup"));
 //photo
 const photosContainer = document.querySelector(".photo__elements");
-const photoTemplate = document.querySelector("#photoTemplate").content;
+// const photoTemplate = document.querySelector("#photoTemplate").content;
+
 // image and link values from form
 const imageName = addingFormImage.querySelector(".popup__input_image_name");
 const imageLink = addingFormImage.querySelector(".popup__input_image_link");
@@ -64,17 +63,6 @@ function handleFormSubmit(event) {
     userDescription.textContent = userDescriptionInput.value;
     closePopup(editingPopup);
 }
-// //Delete button function
-// function handleDeleteButton(event) {
-//     const button = event.target;
-//     const photo = button.closest(".photo__element");
-//     photo.remove();
-// }
-
-// //Like button function
-// function handleLikeButton(event) {
-//     event.target.classList.toggle("photo__like_active");
-// }
 
 //Image profile submit
 function handleFormImageSubmit(event) {
@@ -86,34 +74,20 @@ function handleFormImageSubmit(event) {
     form.reset();
 }
 // create cards function with class
-function createPhotos(data) {
-    const newPhoto = new Card(data, photoTemplate, showImage);
-    return newPhoto;
-}
+const createPhotoCard = (name, link) => {
+    const photoCard = new Card({ name, link }, "#photoTemplate", showImage);
+    const photoCardElement = photoCard.createCard();
+    return photoCardElement;
+};
 
-// //Create photo function
-// function createPhotos(name, link) {
-//     const newPhoto = photoTemplate
-//         .querySelector(".photo__element")
-//         .cloneNode(true);
-//     const photoHeading = newPhoto.querySelector(".photo__name");
-//     const deletingButton = newPhoto.querySelector(".photo__delete");
-//     const likingButton = newPhoto.querySelector(".photo__like");
-//     const photoImage = newPhoto.querySelector(".photo__image");
-//     photoHeading.textContent = name;
-//     photoImage.setAttribute("src", link);
-//     photoImage.setAttribute("alt", `Фотография ${name}`);
-//     deletingButton.addEventListener("click", handleDeleteButton);
-//     likingButton.addEventListener("click", handleLikeButton);
-//     photoImage.addEventListener("click", () => showImage(name, link));
-//     return newPhoto;
-// }
-function prependPhoto(data) {
-    const photoCard = createPhotos(data);
+const prependPhoto = ({ name, link }) => {
+    const photoCard = createPhotoCard(name, link);
     photosContainer.prepend(photoCard);
-}
+};
+
 //Creation cards with array method
 initialCards.forEach(prependPhoto);
+
 //Function show image
 function showImage(name, link) {
     popupImage.src = link;
