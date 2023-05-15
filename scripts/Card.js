@@ -6,15 +6,31 @@ export default class Card {
         this._openImagePopup = openImagePopup;
     }
 
-    _getTemplate() {
+    _getTemplate = () => {
         const card = document
             .querySelector(this._templateSelector)
             .content.querySelector(".photo__element")
             .cloneNode(true);
         return card;
-    }
+    };
 
-    createCard() {
+    _handleLikeCard = () => {
+        this._likingButton.classList.toggle("photo__like_active");
+    };
+
+    _handleDeleteCard = () => {
+        this.card.remove();
+    };
+
+    _setEventListeners = () => {
+        this._deletingButton.addEventListener("click", this._handleDeleteCard);
+        this._likingButton.addEventListener("click", this._handleLikeCard);
+        this._cardImage.addEventListener("click", () => {
+            this._openImagePopup(this._name, this._link);
+        });
+    };
+
+    createCard = () => {
         this.card = this._getTemplate();
         this._cardHeading = this.card.querySelector(".photo__name");
         this._deletingButton = this.card.querySelector(".photo__delete");
@@ -25,25 +41,5 @@ export default class Card {
         this._cardImage.alt = `Фотография ${this._name}`;
         this._setEventListeners();
         return this.card;
-    }
-
-    _handleLikeButton = (event) => {
-        event.target.classList.toggle("photo__like_active");
     };
-
-    _handleDeleteButton = (event) => {
-        event.target.closest(".photo__element").remove();
-    };
-
-    _setEventListeners() {
-        this._deletingButton.addEventListener("click", () => {
-            this._handleDeleteButton;
-        });
-        this._likingButton.setEventListener("click", () => {
-            this._handleLikeButton;
-        });
-        this._cardImage.setEventListener("click", () => {
-            this._openImagePopup(this._name, this._link);
-        });
-    }
 }
