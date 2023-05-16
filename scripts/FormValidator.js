@@ -35,17 +35,23 @@ export default class FormValidator {
         );
     };
 
+    _enableButton() {
+        this._button.classList.remove(
+            this._configValidation.inactiveButtonClass
+        );
+        this._button.disabled = false;
+    }
+
+    _disableButton() {
+        this._button.classList.add(this._configValidation.inactiveButtonClass);
+        this._button.disabled = true;
+    }
+
     _toggleButton = () => {
         if (this._hasInvalidInput()) {
-            this._button.classList.add(
-                this._configValidation.inactiveButtonClass
-            );
-            this._button.disabled = true;
+            this._disableButton();
         } else {
-            this._button.classList.remove(
-                this._configValidation.inactiveButtonClass
-            );
-            this._button.disabled = false;
+            this._enableButton();
         }
     };
 
@@ -66,8 +72,15 @@ export default class FormValidator {
     };
 
     resetValidation = () => {
-        this._toggleButton();
-        this._inputList.forEach(() => {
+        this._inputList = this._form.querySelectorAll(
+            this._configValidation.inputSelector
+        );
+        this._inputList.forEach((input) => {
+            this._input = input;
+            this._errorInput = this._form.querySelector(
+                `${this._configValidation.inputSelector}-${this._input.name}-error`
+            );
+            this._toggleButton();
             this._hideInputError();
         });
     };

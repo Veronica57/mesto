@@ -117,6 +117,7 @@ edittingFormValidation.enableValidation();
 editingForm.addEventListener("submit", handleFormSubmit);
 
 editingButton.addEventListener("click", () => {
+    edittingFormValidation.resetValidation();
     userNameInput.value = userName.textContent;
     userDescriptionInput.value = userDescription.textContent;
     openPopup(editingPopup);
@@ -132,9 +133,7 @@ addingImageFormValidation.enableValidation();
 //open image add popup
 addingButton.addEventListener("click", () => {
     openPopup(addingImagePopup);
-    const submitButton = addingFormImage.querySelector(".popup__button");
-    submitButton.classList.add("popup__button_disabled");
-    submitButton.disabled = "true";
+    addingImageFormValidation.resetValidation();
 });
 
 addingFormImage.addEventListener("submit", handleFormImageSubmit);
