@@ -4,44 +4,28 @@ export default class FormValidator {
         this._form = form;
     }
 
-    _showInputError = (input, errorMessage, inputSelector) => {
-        input.classList.add(this._configValidation.inputErrorClass);
-        const errorInput = this._form.querySelector(
-            `${inputSelector}-${input.name}-error`
+    _showInputError = () => {
+        this._input.classList.add(this._configValidation.inputErrorClass);
+        this._errorInput.textContent = this._input.validationMessage;
+        this._errorInput.classList.add(this._configValidation.activeErrorClass);
+    };
+
+    _hideInputError = () => {
+        this._input.classList.remove(this._configValidation.inputErrorClass);
+        this._errorInput.classList.remove(
+            this._configValidation.activeErrorClass
         );
-        errorInput.textContent = errorMessage;
+        this._errorInput.textContent = "";
     };
 
-    _hideInputError = (input, inputSelector) => {
-        input.classList.remove(this._configValidation.inputErrorClass);
-        const errorInput = this._form.querySelector(
-            `${inputSelector}-${input.name}-error`
+    _checkInputValidity = () => {
+        this._errorInput = this._form.querySelector(
+            `${this._configValidation.inputSelector}-${this._input.name}-error`
         );
-        errorInput.textContent = "";
-    };
-
-    _checkInputValidity = (input, inputSelector) => {
-        if (!input.validity.valid) {
-            this._showInputError(
-                input,
-                this._showErrorMessage(input),
-                inputSelector
-            );
+        if (!this._input.validity.valid) {
+            this._showInputError();
         } else {
-            this._hideInputError(input, inputSelector);
-        }
-    };
-
-    _showErrorMessage = (input) => {
-        const length = input.value.length;
-        if (input.type === "url") {
-            return "Введите адрес сайта.";
-        } else if (length === 0) {
-            return "Вы пропустили это поле.";
-        } else {
-            return `Используйте не менее 2 символов. Длина строки ${
-                length === 1 ? `${length} символ` : `${length} символа`
-            }`;
+            this._hideInputError();
         }
     };
 
@@ -51,37 +35,44 @@ export default class FormValidator {
         );
     };
 
-    _toggleButton = ({ inactiveButtonClass }) => {
+    _toggleButton = () => {
         if (this._hasInvalidInput()) {
-            this._button.classList.add(inactiveButtonClass);
+            this._button.classList.add(
+                this._configValidation.inactiveButtonClass
+            );
             this._button.disabled = true;
         } else {
-            this._button.classList.remove(inactiveButtonClass);
+            this._button.classList.remove(
+                this._configValidation.inactiveButtonClass
+            );
             this._button.disabled = false;
         }
     };
 
-    _setEventListeners = ({ inputSelector, submitButtonSelector, ...rest }) => {
-        this._inputList = this._form.querySelectorAll(inputSelector);
-        this._button = this._form.querySelector(submitButtonSelector);
-        this._toggleButton(rest);
+    _setEventListeners = () => {
+        this._inputList = this._form.querySelectorAll(
+            this._configValidation.inputSelector
+        );
+        this._button = this._form.querySelector(
+            this._configValidation.submitButtonSelector
+        );
         this._inputList.forEach((input) => {
             input.addEventListener("input", () => {
-                this._checkInputValidity(input, inputSelector);
-                this._toggleButton(rest);
+                this._input = input;
+                this._checkInputValidity();
+                this._toggleButton();
             });
         });
     };
 
     resetValidation = () => {
-        this._toggleButton(this._configValidation);
-
-        this._inputList.forEach((input) => {
-            this._hideInputError(input, this._configValidation.inputSelector);
+        this._toggleButton();
+        this._inputList.forEach(() => {
+            this._hideInputError();
         });
     };
 
     enableValidation = () => {
-        this._setEventListeners(this._configValidation);
+        this._setEventListeners();
     };
 }
