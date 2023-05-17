@@ -77,10 +77,10 @@ export default class FormValidator {
         );
         this._inputList.forEach((input) => {
             this._input = input;
+            this._toggleButton();
             this._errorInput = this._form.querySelector(
                 `${this._configValidation.inputSelector}-${this._input.name}-error`
             );
-            this._toggleButton();
             this._hideInputError();
         });
     };
