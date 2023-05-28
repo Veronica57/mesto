@@ -22,12 +22,14 @@ export default class Card {
         this.card.remove();
     };
 
+    _handleCardClick = () => {
+        this._openImagePopup(this._name, this._link);
+    };
+
     _setEventListeners = () => {
         this._deletingButton.addEventListener("click", this._handleDeleteCard);
         this._likingButton.addEventListener("click", this._handleLikeCard);
-        this._cardImage.addEventListener("click", () => {
-            this._openImagePopup(this._name, this._link);
-        });
+        this._cardImage.addEventListener("click", this._handleCardClick);
     };
 
     createCard = () => {

@@ -1,6 +1,6 @@
-import initialCards from "./constants.js";
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import initialCards from "../components/constants.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 //profile
 const editingButton = document.querySelector(".profile__edit-button");
@@ -20,8 +20,11 @@ const editingForm = document.querySelector("#popupEditForm");
 const addingImagePopup = document.querySelector(".add-popup");
 const addingFormImage = document.querySelector(".popup__form-image");
 const showingImagePopup = document.querySelector(".show-popup");
+//class PopupImage ////
 const popupImage = document.querySelector(".popup__image");
+//class PopupImage ///
 const popupImageName = document.querySelector(".popup__image-name");
+/////
 const allPopups = Array.from(document.querySelectorAll(".popup"));
 //photo
 const photosContainer = document.querySelector(".photo__elements");
@@ -88,7 +91,7 @@ const prependPhoto = ({ name, link }) => {
 //Creation cards with array method
 initialCards.forEach(prependPhoto);
 
-//Function show image
+//Function show image /// class PopupImage
 function showImage(name, link) {
     popupImage.src = link;
     popupImage.alt = name;
