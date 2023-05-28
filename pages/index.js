@@ -1,12 +1,20 @@
-import initialCards from "../components/constants.js";
+import {
+    initialCards,
+    editingButton,
+    addingButton,
+    configValidation,
+} from "../utils/constants";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup";
+import PopupWithImage from "../components/PopupWithImage";
+import PopupWithForm from "../components/PopupWithForm";
+import Section from "../components/Section";
+import UserInfo from "../components/UserInfo";
 
 //profile
-const editingButton = document.querySelector(".profile__edit-button");
 const userName = document.querySelector(".profile__name");
 const userDescription = document.querySelector(".profile__description");
-const addingButton = document.querySelector(".profile__add-button");
 //popup
 const closingPopupButtons = Array.from(
     document.querySelectorAll(".popup__exit")
@@ -33,14 +41,6 @@ const photosContainer = document.querySelector(".photo__elements");
 // image and link values from form
 const imageName = addingFormImage.querySelector(".popup__input_image_name");
 const imageLink = addingFormImage.querySelector(".popup__input_image_link");
-//Form validation config
-const configValidation = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button",
-    inactiveButtonClass: "popup__button_disabled",
-    inputErrorClass: "popup__input_type_error",
-};
 
 //Function close by escape button
 function closePopupByEscapeButton(event) {
