@@ -6,8 +6,8 @@ export default class Section {
     }
 
     renderItems() {
-        this._renderedItems.forEach((element) => {
-            this._renderer(element);
+        this._renderedItems.forEach(({ name, link }) => {
+            this._renderer({ name, link });
         });
     }
 
