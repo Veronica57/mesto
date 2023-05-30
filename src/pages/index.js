@@ -18,6 +18,7 @@ import {
     showingImagePopup,
     userDescriptionInput,
     userNameInput,
+    photoTemplate,
 } from "../utils/constants";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -70,11 +71,6 @@ const popupAddForm = new PopupWithForm(addingImagePopup, (data) => {
     section.addItem(createPhotoCard(data));
 });
 popupAddForm.setEventListeners();
-
-///////
-// const photoTemplate = document.querySelector("#photoTemplate").content;
-
-// image and link values from form
 
 //User profile submit
 function handleFormSubmit(event) {

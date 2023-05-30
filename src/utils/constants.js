@@ -64,6 +64,8 @@ const popupImageName = document.querySelector(".popup__image-name");
 //photo
 const photosContainer = document.querySelector(".photo__elements");
 
+const photoTemplate = document.querySelector("#photoTemplate").content;
+
 export {
     initialCards,
     editingButton,
@@ -84,4 +86,5 @@ export {
     showingImagePopup,
     userDescriptionInput,
     userNameInput,
+    photoTemplate,
 };
