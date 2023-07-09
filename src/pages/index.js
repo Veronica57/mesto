@@ -26,7 +26,6 @@ import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section";
 import UserInfo from "../components/UserInfo";
-import PopupWithForm from "../components/PopupWithForm";
 
 //profile
 const userInfo = new UserInfo({ userName, userDescription });
