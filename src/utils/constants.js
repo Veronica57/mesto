@@ -38,10 +38,8 @@ const configValidation = {
     inputErrorClass: "popup__input_type_error",
 };
 
-const userName = document.querySelector(".profile__name");
-const userDescription = document.querySelector(".profile__description");
 const popupImage = document.querySelector(".popup__image");
-const editingPopup = document.querySelector(".edit-popup");
+const editingPopup = document.querySelector(".edit-popup"); // редактировать профиль
 const editingForm = document.querySelector("#popupEditForm");
 const addingFormImage = document.querySelector(".popup__form-image");
 const addingImagePopup = document.querySelector(".add-popup");
@@ -54,7 +52,7 @@ const userDescriptionInput = document.querySelector(
     ".popup__input_user_description"
 );
 
-const showingImagePopup = document.querySelector(".show-popup");
+const showingImagePopup = document.querySelector(".show-popup"); //Открытие карточки
 //class PopupImage ////
 
 //class PopupImage ///
@@ -62,11 +60,21 @@ const popupImageName = document.querySelector(".popup__image-name");
 /////
 
 //photo
-const photosContainer = document.querySelector(".photo__elements");
+const templateSelector = "#photoTemplate"; //селектор карточки
+const photosContainer = document.querySelector(".photo__elements"); //карточка
+const userInfo = {
+    nameSelector: ".profile__name",
+    descriptionSelector: ".profile__description",
+};
+// const popupFormSelector = allPopups.querySelector(".popup__form");
+// const userName = document.querySelector(".profile__name");
+// const userDescription = document.querySelector(".profile__description");
 
-const photoTemplate = document.querySelector("#photoTemplate").content;
+// const photoTemplate = document.querySelector("#photoTemplate").content;
 
 export {
+    userInfo, // данные пользователя
+    templateSelector, //селектор карточки
     initialCards,
     editingButton,
     addingButton,
