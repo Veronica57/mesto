@@ -4,8 +4,6 @@ import {
     editingButton,
     addingButton,
     configValidation,
-    userName,
-    userDescription,
     popupImage,
     editingPopup,
     editingForm,
@@ -30,8 +28,8 @@ import PopupWithForm from "../../src/components/PopupWithForm";
 import Section from "../../src/components/Section";
 import UserInfo from "../../src/components/UserInfo";
 
-const popupImage = new PopupWithImage(showingImagePopup);
-popupImage.setEventListeners();
+const popupShowImage = new PopupWithImage(showingImagePopup);
+popupShowImage.setEventListeners();
 
 function createNewPhotoCard(cardItem) {
     const photoCard = new Card(cardItem, templateSelector, popupImage.open);
@@ -42,7 +40,7 @@ const section = new Section((cardItem) => {
     section.addItem(createNewPhotoCard(cardItem));
 }, photosContainer);
 
-const userInfo = new UserInfo(userInfo);
+const userInformation = new UserInfo(userInfo);
 
 const editProfile = new PopupWithForm(editingPopup);
 editProfile.setEventListeners();
@@ -70,6 +68,6 @@ addingButton.addEventListener("click", () => {
 // edit button
 editingButton.addEventListener("click", () => {
     edittingFormValidation.resetValidation();
-    userInfo.setInputValues(userInfo.getUserInfo());
+    userInformation.setInputValues(userInformation.getUserInfo());
     editProfile.open();
 });

@@ -67,8 +67,6 @@ const userInfo = {
     descriptionSelector: ".profile__description",
 };
 // const popupFormSelector = allPopups.querySelector(".popup__form");
-// const userName = document.querySelector(".profile__name");
-// const userDescription = document.querySelector(".profile__description");
 
 // const photoTemplate = document.querySelector("#photoTemplate").content;
 
