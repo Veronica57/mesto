@@ -43,7 +43,7 @@ const editingButton = document.querySelector(".profile__edit-button");
 const addingButton = document.querySelector(".profile__add-button");
 //Form validation config
 
-const popupImage = document.querySelector(".popup__image");
+// const popupImage = document.querySelector(".popup__image");
 const editingPopup = document.querySelector(".edit-popup"); // редактировать профиль
 
 const addingImagePopup = document.querySelector(".add-popup");
@@ -74,19 +74,14 @@ const userInfo = {
 export {
     userInfo, // данные пользователя
     templateSelector, //селектор карточки
-    popupFormEdit, // редактировать профиль
-    initialCards,
     editingButton,
     addingButton,
     configValidation,
-    popupImage,
     editingPopup,
     editingForm,
     addingFormImage,
     addingImagePopup,
     photosContainer,
     showingImagePopup,
-    userDescriptionInput,
-    userNameInput,
     initialCards,
 };
