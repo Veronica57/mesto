@@ -2,60 +2,57 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { query } = require("express");
+
 module.exports = {
-    entry: { main: "./src/pages/index.js" },
+    entry: {
+        main: "./src/pages/index.js",
+    },
+
     output: {
-        path: path.resolve("./dist"),
-        filename: "scripts/[name].js",
+        path: path.resolve(__dirname, "dist"),
+        filename: "main.js",
         publicPath: "",
     },
+
     mode: "development",
+
     devServer: {
-        static: path.resolve(__dirname, "./dist"), // путь, куда "смотрит" режим разработчика
-        compress: true, // это ускорит загрузку в режиме разработки
-        port: 8080, // порт, чтобы открывать сайт по адресу localhost:8080, но можно поменять порт
-        open: true, // сайт будет открываться сам при запуске npm run dev
+        static: path.resolve(__dirname, "./dist"),
+        open: true,
+        compress: true,
+        port: 8080,
     },
+
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: { importLoaders: 1 },
-                    },
-                    "postcss-loader",
-                ],
-            },
             {
                 test: /\.js$/i,
                 use: "babel-loader",
                 exclude: /node_modules/,
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)/i,
                 type: "asset/resource",
-                generator: {
-                    filename: "images/[hash][ext][query]",
-                },
             },
             {
-                test: /\.(woff(2)?|eot|ttf|otf)$/,
-                type: "asset/resource",
-                generator: {
-                    filename: "fonts/[hash][ext][query]",
-                },
+                test: /\.css$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                    "postcss-loader",
+                ],
             },
         ],
     },
+
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "src/index.html",
-        }),
+        new HtmlWebpackPlugin({ template: "./src/index.html" }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({ filename: "styles/[name].css" }),
+        new MiniCssExtractPlugin(),
     ],
 };
