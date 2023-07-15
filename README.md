@@ -10,9 +10,10 @@
 -   Flexbox
 -   Grid Layout
 -   @media запросы
--   Методолгия БЭМ
+-   Методология БЭМ
 -   Файловая структура Nested
 -   JavaScript для интерактивности
 -   Работа с формами
+-   Webpack
 
 #### Ссылка на проект: https://veronica57.github.io/mesto/
