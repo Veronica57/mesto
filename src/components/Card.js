@@ -1,7 +1,6 @@
 export default class Card {
     constructor(data, templateSelector, openImagePopup) {
-        this._name = data.name;
-        this._link = data.link;
+        this._data = data;
         this._templateSelector = templateSelector;
         this._openImagePopup = openImagePopup;
     }
@@ -19,11 +18,11 @@ export default class Card {
     };
 
     _handleDeleteCard = () => {
-        this.card.remove();
+        this._card.remove();
     };
 
     _handleCardClick = () => {
-        this._openImagePopup(this._name, this._link);
+        this._openImagePopup(this._data);
     };
 
     _setEventListeners = () => {
@@ -33,15 +32,15 @@ export default class Card {
     };
 
     createCard = () => {
-        this.card = this._getTemplate();
-        this._cardHeading = this.card.querySelector(".photo__name");
-        this._deletingButton = this.card.querySelector(".photo__delete");
-        this._likingButton = this.card.querySelector(".photo__like");
-        this._cardImage = this.card.querySelector(".photo__image");
-        this._cardHeading.textContent = this._name;
-        this._cardImage.src = this._link;
-        this._cardImage.alt = `Фотография ${this._name}`;
+        this._card = this._getTemplate();
+        this._cardHeading = this._card.querySelector(".photo__name");
+        this._deletingButton = this._card.querySelector(".photo__delete");
+        this._likingButton = this._card.querySelector(".photo__like");
+        this._cardImage = this._card.querySelector(".photo__image");
+        this._cardHeading.textContent = this._data.name;
+        this._cardImage.src = this._data.link;
+        this._cardImage.alt = `Фотография ${this._data.name}`;
         this._setEventListeners();
-        return this.card;
+        return this._card;
     };
 }

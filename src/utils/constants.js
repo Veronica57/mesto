@@ -33,56 +33,34 @@ const configValidation = {
     inputErrorClass: "popup__input_type_error",
 };
 
-//
-const editingForm = document.querySelector("#popupEditForm");
-
-const addingFormImage = document.querySelector(".popup__form-image");
-//edit button
-const editingButton = document.querySelector(".profile__edit-button");
-//add button
-const addingButton = document.querySelector(".profile__add-button");
-//Form validation config
-
-// const popupImage = document.querySelector(".popup__image");
-const editingPopup = document.querySelector(".edit-popup"); // редактировать профиль
-
-const addingImagePopup = document.querySelector(".add-popup");
-const imageName = addingFormImage.querySelector(".popup__input_image_name");
-const imageLink = addingFormImage.querySelector(".popup__input_image_link");
-// const allPopups = Array.from(document.querySelectorAll(".popup"));
-
-const userNameInput = document.querySelector(".popup__input_user_name");
-const userDescriptionInput = document.querySelector(
-    ".popup__input_user_description"
-);
-
-const showingImagePopup = document.querySelector(".show-popup"); //Открытие карточки
-
-// const popupImageName = document.querySelector(".popup__image-name");
-
-//photo
-const templateSelector = document.querySelector("#photoTemplate"); //селектор карточки
-const photosContainer = document.querySelector(".photo__elements"); //карточка
-const userInfo = {
+const userProfile = {
     nameSelector: ".profile__name",
     descriptionSelector: ".profile__description",
 };
 
+const allPopups = Array.from(document.querySelectorAll(".popup"));
+const popupForm = document.querySelector(".popup__form");
+const popupFormAddImage = document.querySelector(".popup__form-image");
+const popupEditButton = document.querySelector(".profile__edit-button");
+const popupAddButton = document.querySelector(".profile__add-button");
+const templateSelector = "#photoTemplate";
+const popupEditProfile = document.querySelector(".edit-popup");
+
+const popupAddImage = document.querySelector(".add-popup");
+const popupShowImage = document.querySelector(".show-popup");
+const imageContainer = document.querySelector(".photo__elements");
+
 export {
-    userInfo,
-    templateSelector,
-    editingButton,
-    addingButton,
-    configValidation,
-    editingPopup,
-    editingForm,
-    addingFormImage,
-    addingImagePopup,
-    photosContainer,
-    showingImagePopup,
     initialCards,
-    imageName,
-    imageLink,
-    userNameInput,
-    userDescriptionInput,
+    configValidation,
+    userProfile,
+    popupAddImage,
+    popupEditProfile,
+    popupForm,
+    popupEditButton,
+    popupFormAddImage,
+    popupAddButton,
+    templateSelector,
+    popupShowImage,
+    imageContainer,
 };
