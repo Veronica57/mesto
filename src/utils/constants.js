@@ -38,17 +38,22 @@ const userProfile = {
     descriptionSelector: ".profile__description",
 };
 
-const allPopups = Array.from(document.querySelectorAll(".popup"));
-const popupForm = document.querySelector(".popup__form");
-const popupFormAddImage = document.querySelector(".popup__form-image");
+// const allPopups = Array.from(document.querySelectorAll(".popup"));
+const forms = {};
+// const popupForm = document.querySelector(".popup__form");
+// const popupFormAddImage = document.querySelector(".popup__form-image");
 const popupEditButton = document.querySelector(".profile__edit-button");
 const popupAddButton = document.querySelector(".profile__add-button");
 const templateSelector = "#photoTemplate";
-const popupEditProfile = document.querySelector(".edit-popup");
+// const popupEditProfile = document.querySelector(".edit-popup");
+const popupEditProfile = "#editPopup";
 
-const popupAddImage = document.querySelector(".add-popup");
-const popupShowImage = document.querySelector(".show-popup");
-const imageContainer = document.querySelector(".photo__elements");
+// const popupAddImage = document.querySelector(".add-popup");
+const popupAddImage = "#addImage";
+// const popupShowImage = document.querySelector(".show-popup");
+const popupShowImage = "#openImage";
+// const imageContainer = document.querySelector(".photo__elements");
+const imageContainer = ".photo__elements";
 
 export {
     initialCards,
@@ -56,11 +61,12 @@ export {
     userProfile,
     popupAddImage,
     popupEditProfile,
-    popupForm,
+    // popupForm,
     popupEditButton,
-    popupFormAddImage,
+    // popupFormAddImage,
     popupAddButton,
     templateSelector,
     popupShowImage,
     imageContainer,
+    forms,
 };
