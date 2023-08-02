@@ -20,8 +20,37 @@ import PopupWithImage from "../../src/components/PopupWithImage";
 import PopupWithForm from "../../src/components/PopupWithForm";
 import Section from "../../src/components/Section";
 import UserInfo from "../../src/components/UserInfo";
+import Api from "../../src/components/Api";
+import PopupDelete from "../../src/components/PopupDelete";
 
 const userInfo = new UserInfo(userProfile);
+
+const api = new Api({
+    baseUrl: "https://mesto.nomoreparties.co/v1/cohort-72",
+    headers: {
+        authorization: "8abff67b-bce1-4956-a9c9-3acb678266c1",
+        "Content-Type": "application/json",
+    },
+});
+
+api.getCards().then((res) => console.log(res));
+
+const popupDeleteCard = new PopupDelete(
+    popupDeleteSelector,
+    ({ card, cardId }) => {
+        api.deleteCard(cardId)
+            .then(() => {
+                card.deleteCard();
+                popupDeleteCard.close();
+            })
+            .catch((error) =>
+                console.error(`Ошибка при удалении фотографии ${error}`)
+            )
+            .finally(() => {
+                popupDeleteCard.setSubmitButtonText();
+            });
+    }
+);
 
 const popupOpenImage = new PopupWithImage(popupShowImage);
 popupOpenImage.setEventListeners();

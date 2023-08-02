@@ -17,13 +17,15 @@
         </header>
         <main>
             <section class="profile">
-                <img
-                    src="<%=require('./images/Jacques-Yves-Cousteau.jpg')%>"
-                    alt="Жан-Ив Кусто"
-                    class="profile__avatar-image" />
+                <button type="button" class="profile__avatar-button">
+                    <img
+                        src="#"
+                        alt="Фотография пользователя"
+                        class="profile__avatar-image" />
+                </button>
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <p class="profile__description">Исследователь океана</p>
+                    <h1 class="profile__name"></h1>
+                    <p class="profile__description"></p>
                     <button class="profile__edit-button" type="button"></button>
                 </div>
                 <button class="profile__add-button" type="button"></button>
@@ -41,6 +43,7 @@
                                 <button
                                     class="photo__like"
                                     type="button"></button>
+                                <span class="photo__like-number"></span>
                             </div>
                         </li>
                     </template>
@@ -139,6 +142,50 @@
                         <img class="popup__image" />
                         <p class="popup__image-name"></p>
                     </div>
+                </div>
+            </div>
+            <!-- add user avatar -->
+            <div class="popup" id="addUserAvatar">
+                <div class="popup__container">
+                    <form
+                        class="popup__form"
+                        id="addUserAvatar"
+                        name="user-avatar"
+                        novalidate>
+                        <button
+                            class="popup__exit popup__exit-avatar"
+                            type="button"></button>
+                        <h2 class="popup__form-title">Обновить аватар</h2>
+                        <div class="popup__form-fieldset">
+                            <div class="popup__input-container">
+                                <input
+                                    type="url"
+                                    class="popup__input popup__input_avatar_link"
+                                    name="user-avatar"
+                                    placeholder="Ссылка на фотографию пользователя"
+                                    required />
+                                <span
+                                    class="popup__input-error popup__input-avatar-link-error"></span>
+                            </div>
+                            <button class="popup__button" type="submit">
+                                Сохранить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- confirm delete popup -->
+            <div class="popup" id="confirmDeletePopup">
+                <div class="popup__container">
+                    <form
+                        class="popup__form"
+                        id="confirmDelete"
+                        novalidate
+                        name="confirm-delete">
+                        <button class="popup__exit" type="button"></button>
+                        <h2 class="popup__form-title">Вы уверены?</h2>
+                    </form>
+                    <button class="popup__button" type="submit">Да</button>
                 </div>
             </div>
         </main>
