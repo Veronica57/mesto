@@ -10,19 +10,19 @@ export default class FormValidator {
         );
     }
 
-    _showInputError = () => {
+    _showInputError() {
         this._input.classList.add(this._configValidation.inputErrorClass);
         this._errorInput.textContent = this._input.validationMessage;
         this._errorInput.classList.add(this._configValidation.activeErrorClass);
-    };
+    }
 
-    _hideInputError = () => {
+    _hideInputError() {
         this._input.classList.remove(this._configValidation.inputErrorClass);
         this._errorInput.classList.remove(
             this._configValidation.activeErrorClass
         );
         this._errorInput.textContent = "";
-    };
+    }
 
     _checkInputValidity = () => {
         this._errorInput = this._form.querySelector(

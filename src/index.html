@@ -16,6 +16,7 @@
                 class="header__logo" />
         </header>
         <main>
+            <!-- User profile -->
             <section class="profile">
                 <button type="button" class="profile__avatar-button">
                     <img
@@ -30,6 +31,7 @@
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
+            <!-- Cards section -->
             <section class="photo">
                 <ul class="photo__elements">
                     <template id="photoTemplate">
@@ -40,10 +42,12 @@
                                 type="button"></button>
                             <div class="photo__signature">
                                 <h2 class="photo__name"></h2>
-                                <button
-                                    class="photo__like"
-                                    type="button"></button>
-                                <span class="photo__like-number"></span>
+                                <div class="photo__like-container">
+                                    <button
+                                        class="photo__like"
+                                        type="button"></button>
+                                    <span class="photo__like-number"></span>
+                                </div>
                             </div>
                         </li>
                     </template>
@@ -57,33 +61,34 @@
                         class="popup__form"
                         name="editForm"
                         id="popupEditForm"
-                        novalidate>
+                        novalidate
+                        method="get">
                         <button class="popup__exit" type="button"></button>
                         <h2 class="popup__form-title">Редактировать профиль</h2>
                         <div class="popup__form-fieldset">
                             <div class="popup__input-container">
                                 <input
                                     type="text"
-                                    name="user-name"
+                                    name="username"
                                     class="popup__input popup__input_user_name"
                                     required
                                     minlength="2"
                                     maxlength="40"
                                     placeholder="Имя пользователя" />
                                 <span
-                                    class="popup__input-error popup__input-user-name-error"></span>
+                                    class="popup__input-error popup__input-username-error"></span>
                             </div>
                             <div class="popup__input-container">
                                 <input
                                     type="text"
-                                    name="user-description"
+                                    name="userdescription"
                                     class="popup__input popup__input_user_description"
                                     required
                                     minlength="2"
                                     maxlength="200"
                                     placeholder="Описание пользователя" />
                                 <span
-                                    class="popup__input-error popup__input-user-description-error"></span>
+                                    class="popup__input-error popup__input-userdescription-error"></span>
                             </div>
                         </div>
                         <button class="popup__button" type="submit">
@@ -96,10 +101,11 @@
             <div class="popup add-popup" id="addImage">
                 <div class="popup__container">
                     <form
-                        action="#"
+                        id="formAddImage"
                         class="popup__form popup__form-image"
                         name="addImageForm"
-                        novalidate>
+                        novalidate
+                        method="get">
                         <button
                             class="popup__exit popup__exit-image"
                             type="button"></button>
@@ -108,24 +114,26 @@
                             <div class="popup__input-container">
                                 <input
                                     type="text"
-                                    name="image-name"
+                                    name="imagename"
+                                    id="imagename"
                                     class="popup__input popup__input_image_name"
                                     required
                                     minlength="2"
                                     maxlength="30"
                                     placeholder="Название" />
                                 <span
-                                    class="popup__input-error popup__input-image-name-error"></span>
+                                    class="popup__input-error popup__input-imagename-error"></span>
                             </div>
                             <div class="popup__input-container">
                                 <input
                                     type="url"
-                                    name="image-link"
+                                    name="imagelink"
+                                    id="imagelink"
                                     class="popup__input popup__input_image_link"
                                     required
                                     placeholder="Ссылка на картинку" />
                                 <span
-                                    class="popup__input-error popup__input-image-link-error"></span>
+                                    class="popup__input-error popup__input-imagelink-error"></span>
                             </div>
                         </div>
                         <button class="popup__button" type="submit">
@@ -149,9 +157,10 @@
                 <div class="popup__container">
                     <form
                         class="popup__form"
-                        id="addUserAvatar"
-                        name="user-avatar"
-                        novalidate>
+                        id="userAvatarForm"
+                        name="userAvatar"
+                        novalidate
+                        method="get">
                         <button
                             class="popup__exit popup__exit-avatar"
                             type="button"></button>
@@ -161,31 +170,37 @@
                                 <input
                                     type="url"
                                     class="popup__input popup__input_avatar_link"
-                                    name="user-avatar"
+                                    name="useravatar"
+                                    id="useravatar"
                                     placeholder="Ссылка на фотографию пользователя"
                                     required />
                                 <span
-                                    class="popup__input-error popup__input-avatar-link-error"></span>
+                                    class="popup__input-error popup__input-useravatar-error"></span>
                             </div>
-                            <button class="popup__button" type="submit">
-                                Сохранить
-                            </button>
                         </div>
+                        <button class="popup__button" type="submit">
+                            Сохранить
+                        </button>
                     </form>
                 </div>
             </div>
             <!-- confirm delete popup -->
             <div class="popup" id="confirmDeletePopup">
-                <div class="popup__container">
+                <div class="popup__container popup__container-delete">
                     <form
                         class="popup__form"
                         id="confirmDelete"
                         novalidate
-                        name="confirm-delete">
+                        name="confirm-delete"
+                        method="get">
                         <button class="popup__exit" type="button"></button>
                         <h2 class="popup__form-title">Вы уверены?</h2>
+                        <button
+                            class="popup__button popup__button_delete"
+                            type="submit">
+                            Да
+                        </button>
                     </form>
-                    <button class="popup__button" type="submit">Да</button>
                 </div>
             </div>
         </main>

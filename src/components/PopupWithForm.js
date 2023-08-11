@@ -1,43 +1,44 @@
-import Popup from "./Popup";
+import Popup from "./Popup.js";
+
 export default class PopupWithForm extends Popup {
     constructor(popupSelector, handleFormSubmit) {
         super(popupSelector);
-        this._form = this._popup.querySelector(".popup__form");
-        this._inputValues = this._popup.querySelectorAll(".popup__input");
-        this._submitButton = this._form.querySelector(".popup__button");
         this._handleFormSubmit = handleFormSubmit.bind(this);
+        this._form = this._popup.querySelector(".popup__form");
+        this._inputList = this._form.querySelectorAll(".popup__input");
+        this._submitButton = this._form.querySelector(".popup__button");
+        this._textButton = this._submitButton.textContent;
     }
 
-    _getInputValues() {
-        this._values = {};
-        this._inputValues.forEach((input) => {
-            this._values[input.name] = input.value;
-        });
-        return this._values;
-    }
-
-    setInputValues(data) {
-        this._inputValues.forEach((input) => {
-            input.value = data[input.name];
+    setInputsValue(formValues) {
+        this._inputList.forEach((input) => {
+            input.value = formValues[input.name];
         });
     }
 
     setEventListeners() {
         super.setEventListeners();
-        this._form.addEventListener("submit", (event) => {
-            event.preventDefault();
+        this._form.addEventListener("submit", (evt) => {
+            evt.preventDefault();
             this._submitButton.textContent = `${this._submitButton.textContent}...`;
-            this._handleFormSubmit(this._getInputValues());
-            this.close();
+            this._handleFormSubmit(this._getInputsValue());
         });
     }
 
-    setButtonText() {
-        this._submitButton.textContent = this._submitButtonText;
+    _getInputsValue() {
+        this._values = {};
+        this._inputList.forEach((input) => {
+            this._values[input.name] = input.value;
+        });
+        return this._values;
+    }
+
+    setTextButton() {
+        this._submitButton.textContent = this._textButton;
     }
 
     close() {
-        this._form.reset();
         super.close();
+        this._form.reset();
     }
 }

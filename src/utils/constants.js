@@ -25,18 +25,32 @@
 //     },
 // ];
 
-// User profile !!!!
+// const editProfileButton = document.querySelector(".profile__edit-button");
 const popupEditButton = document.querySelector(".profile__edit-button");
+// const addMestoButton = document.querySelector(".profile__add-button");
 const popupAddButton = document.querySelector(".profile__add-button");
-const avatarButton = document.querySelector(".profile__avatar-button");
+const popupAddAvatarButton = document.querySelector(".profile__avatar-button");
 
+// const selectorTemplate = "#photoTemplate";
 const templateSelector = "#photoTemplate";
-const popupEditProfile = "#editPopup";
-const popupAddImage = "#addImage";
-const popupShowImage = "#openImage";
-const popupAddUserAvatar = "#addUserAvatar";
-const popupConfirmDelete = "#confirmDeletePopup";
-const imageContainer = ".photo__elements";
+// const popupProfileSelector = "#editPopup";
+const popupEditProfileSelector = "#editPopup";
+// const popupAddMestoSelector = "#addImage";
+const popupAddImagSelector = "#addImage";
+// const popupImageSelector = "#openImage";
+const popupShowImageSelector = "#openImage";
+// const containerElementsSelector = ".photo__elements";
+const imageContainerSelector = ".photo__elements";
+const popupAddAvatarSelector = "#addUserAvatar"; //update
+const popupDeleteSelector = "#confirmDeletePopup"; //update
+
+const forms = {};
+
+const userProfile = {
+    nameSelector: ".profile__name",
+    descriptionSelector: ".profile__description",
+    userAvatarSelector: ".profile__avatar-image",
+};
 
 const configValidation = {
     formSelector: ".popup__form",
@@ -46,37 +60,18 @@ const configValidation = {
     inputErrorClass: "popup__input_type_error",
 };
 
-const userProfile = {
-    nameSelector: ".profile__name",
-    descriptionSelector: ".profile__description",
-    userAvatarSelector: ".profile__avatar-image",
-};
-
-// const allPopups = Array.from(document.querySelectorAll(".popup"));
-const forms = {};
-// const popupForm = document.querySelector(".popup__form");
-// const popupFormAddImage = document.querySelector(".popup__form-image");
-
-// const popupEditProfile = document.querySelector(".edit-popup");
-
-// const popupAddImage = document.querySelector(".add-popup");
-
-// const popupShowImage = document.querySelector(".show-popup");
-
-// const imageContainer = document.querySelector(".photo__elements");
-
 export {
-    // initialCards,
-    configValidation,
-    userProfile,
-    popupAddImage,
-    popupEditProfile,
-    // popupForm,
     popupEditButton,
-    // popupFormAddImage,
     popupAddButton,
+    popupAddAvatarButton,
     templateSelector,
-    popupShowImage,
-    imageContainer,
+    popupEditProfileSelector,
+    popupAddImagSelector,
+    popupShowImageSelector,
+    imageContainerSelector,
+    popupAddAvatarSelector,
+    popupDeleteSelector,
     forms,
+    userProfile,
+    configValidation,
 };
