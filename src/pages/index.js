@@ -75,7 +75,7 @@ const createCard = (element) => {
 };
 
 const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
-    api.addCard(data)
+    api.addNewCard(data)
         .then((dataCard) => {
             console.log(userInfo.getId());
             dataCard.id = userInfo.getId();
@@ -92,7 +92,7 @@ const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
 popupAddCard.setEventListeners();
 
 const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
-    api.patchUserInfo(data)
+    api.setUserAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
                 username: res.name,
@@ -131,7 +131,7 @@ const popupDeleteCard = new PopupDelete(
 popupDeleteCard.setEventListeners();
 
 const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
-    api.patchAddAvatar(data)
+    api.setUserAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
                 nameuser: res.name,
