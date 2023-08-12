@@ -18,7 +18,8 @@ export default class UserInfo {
 
     setUserInfo({ userdescription, username, useravatar }) {
         this._currentName.textContent = username;
-        this._currentJob.textContent = userdescription;
+        this._currentDescription.textContent = userdescription;
+        this._currentAvatar.src = useravatar;
     }
 
     setId(id) {

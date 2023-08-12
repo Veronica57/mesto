@@ -14,18 +14,10 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkQuery);
+        }).then(this._checkResponse);
     }
 
-    getCards() {
-        return fetch(`${this._baseUrl}/cards`, {
-            headers: {
-                authorization: this._authorization,
-            },
-        }).then(this._checkQuery);
-    }
-
-    patchUserInfo(data) {
+    setInfo(data) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
@@ -33,17 +25,25 @@ export default class Api {
                 name: data.username,
                 about: data.userdescription,
             }),
-        }).then(this._checkQuery);
+        }).then(this._checkResponse);
     }
 
-    patchAddAvatar(data) {
+    setAvatar(data) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
                 avatar: data.useravatar,
             }),
-        }).then(this._checkQuery);
+        }).then(this._checkResponse);
+    }
+
+    getCards() {
+        return fetch(`${this._baseUrl}/cards`, {
+            headers: {
+                authorization: this._authorization,
+            },
+        }).then(this._checkResponse);
     }
 
     addNewCard(data) {
@@ -63,7 +63,7 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkQuery);
+        }).then(this._checkResponse);
     }
 
     deleteLike(cardId) {
@@ -72,7 +72,7 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkQuery);
+        }).then(this._checkResponse);
     }
 
     deleteCard(cardId) {
@@ -81,6 +81,6 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkQuery);
+        }).then(this._checkResponse);
     }
 }

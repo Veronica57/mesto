@@ -131,7 +131,7 @@ const popupDeleteCard = new PopupDelete(
 popupDeleteCard.setEventListeners();
 
 const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
-    api.patchAddAvatar(data)
+    api.setAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
                 username: res.name,

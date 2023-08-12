@@ -18,8 +18,14 @@ export default class PopupWithForm extends Popup {
         return this._values;
     }
 
-    setTextButton() {
-        this._submitButton.textContent = this._textButton;
+    setInputValues(data) {
+        this._inputList.forEach((input) => {
+            input.value = data[input.name];
+        });
+    }
+
+    setSubmitText() {
+        this._submitButton.textContent = this._textSubmit;
     }
 
     close() {
@@ -34,5 +40,6 @@ export default class PopupWithForm extends Popup {
             this._submitButton.textContent = `${this._submitButton.textContent}...`;
             this._handleFormSubmit(this._getInputValues());
         });
+        this.close();
     }
 }
