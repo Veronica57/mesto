@@ -1,7 +1,7 @@
 export default class UserInfo {
     constructor(userProfile) {
         this._currentName = document.querySelector(userProfile.nameSelector);
-        this._currentJob = document.querySelector(
+        this._currentDescription = document.querySelector(
             userProfile.descriptionSelector
         );
         this._currentAvatar = document.querySelector(
@@ -12,14 +12,14 @@ export default class UserInfo {
     getUserInfo() {
         return {
             username: this._currentName.textContent,
-            userdescription: this._currentJob.textContent,
+            userdescription: this._currentDescription.textContent,
         };
     }
 
     setUserInfo({ userdescription, username, useravatar }) {
         this._currentAvatar.src = useravatar;
         this._currentName.textContent = username;
-        this._currentJob.textContent = userdescription;
+        this._currentDescription.textContent = userdescription;
     }
 
     setId(id) {

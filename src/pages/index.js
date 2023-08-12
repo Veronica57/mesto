@@ -51,8 +51,8 @@ const createCard = (element) => {
         templateSelector,
         popupImage.open,
         popupDeleteCard.open,
-        (likeButton, cardId) => {
-            if (likeButton.classList.contains("photo__like_active")) {
+        (likingButton, cardId) => {
+            if (likingButton.classList.contains("photo__like_active")) {
                 api.deleteLike(cardId)
                     .then((res) => {
                         card.toggleLike(res.likes);
@@ -86,7 +86,7 @@ const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
             console.error(`Ошибка при добавлении фотографии ${error}`)
         )
         .finally(() => {
-            popupAddCard.setTextButton();
+            popupAddCard.setSubmitText();
         });
 });
 popupAddCard.setEventListeners();
@@ -107,7 +107,7 @@ const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
             )
         )
         .finally(() => {
-            popupProfileEdit.setTextButton();
+            popupProfileEdit.setSubmitText();
         });
 });
 popupProfileEdit.setEventListeners();
@@ -124,7 +124,7 @@ const popupDeleteCard = new PopupDelete(
                 console.error(`Ошибка при удалении фотографии ${error}`)
             )
             .finally(() => {
-                popupDeleteCard.setTextButton();
+                popupDeleteCard.setSubmitText();
             });
     }
 );
@@ -134,9 +134,9 @@ const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
     api.setUserAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
-                nameuser: res.name,
-                profession: res.about,
-                avatar: res.avatar,
+                username: res.name,
+                userdescription: res.about,
+                useravatar: res.avatar,
             });
             popupAddAvatar.close();
         })
@@ -144,7 +144,7 @@ const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
             console.error(`Ошибка при изменении аватара ${error}`)
         )
         .finally(() => {
-            popupAddAvatar.setTextButton();
+            popupAddAvatar.setSubmitText();
         });
 });
 popupAddAvatar.setEventListeners();
