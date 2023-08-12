@@ -86,13 +86,13 @@ const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
             console.error(`Ошибка при добавлении фотографии ${error}`)
         )
         .finally(() => {
-            popupAddCard.setTextButton();
+            popupAddCard.setSubmitText();
         });
 });
 popupAddCard.setEventListeners();
 
 const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
-    api.patchUserInfo(data)
+    api.setInfo(data)
         .then((res) => {
             userInfo.setUserInfo({
                 username: res.name,
@@ -103,11 +103,11 @@ const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
         })
         .catch((error) =>
             console.error(
-                `Ошибка при редактировании профиля ползователя ${error}`
+                `Ошибка при редактировании профиля пользователя ${error}`
             )
         )
         .finally(() => {
-            popupProfileEdit.setTextButton();
+            popupProfileEdit.setSubmitText();
         });
 });
 popupProfileEdit.setEventListeners();
@@ -124,14 +124,14 @@ const popupDeleteCard = new PopupDelete(
                 console.error(`Ошибка при удалении фотографии ${error}`)
             )
             .finally(() => {
-                popupDeleteCard.setTextButton();
+                popupDeleteCard.setSubmitText();
             });
     }
 );
 popupDeleteCard.setEventListeners();
 
 const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
-    api.patchAddAvatar(data)
+    api.setAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
                 nameuser: res.name,
@@ -144,7 +144,7 @@ const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
             console.error(`Ошибка при изменении аватара ${error}`)
         )
         .finally(() => {
-            popupAddAvatar.setTextButton();
+            popupAddAvatar.setSubmitText();
         });
 });
 popupAddAvatar.setEventListeners();
@@ -158,7 +158,7 @@ Array.from(document.forms).forEach((item) => {
 
 popupEditButton.addEventListener("click", () => {
     forms.editForm.resetValidation();
-    popupProfileEdit.setInputsValue(userInfo.getUserInfo());
+    popupProfileEdit.setInputValues(userInfo.getUserInfo());
     popupProfileEdit.open();
 });
 
@@ -186,4 +186,4 @@ Promise.all([api.getInfo(), api.getCards()])
         userInfo.setId(dataUser._id);
         sectionCards.renderItems(dataCard);
     })
-    .catch((error) => console.error(`Ошибка ${error}`));
+    .catch((error) => console.error(`Код ошибки ${error}`));

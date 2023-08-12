@@ -25,24 +25,16 @@
 //     },
 // ];
 
-// const editProfileButton = document.querySelector(".profile__edit-button");
 const popupEditButton = document.querySelector(".profile__edit-button");
-// const addMestoButton = document.querySelector(".profile__add-button");
 const popupAddButton = document.querySelector(".profile__add-button");
 const popupAddAvatarButton = document.querySelector(".profile__avatar-button");
-
-// const selectorTemplate = "#photoTemplate";
 const templateSelector = "#photoTemplate";
-// const popupProfileSelector = "#editPopup";
 const popupEditProfileSelector = "#editPopup";
-// const popupAddMestoSelector = "#addImage";
 const popupAddImagSelector = "#addImage";
-// const popupImageSelector = "#openImage";
 const popupShowImageSelector = "#openImage";
-// const containerElementsSelector = ".photo__elements";
 const imageContainerSelector = ".photo__elements";
-const popupAddAvatarSelector = "#addUserAvatar"; //update
-const popupDeleteSelector = "#confirmDeletePopup"; //update
+const popupAddAvatarSelector = "#addUserAvatar";
+const popupDeleteSelector = "#confirmDeletePopup";
 
 const forms = {};
 
