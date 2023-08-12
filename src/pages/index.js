@@ -77,7 +77,6 @@ const createCard = (element) => {
 const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
     api.addNewCard(data)
         .then((dataCard) => {
-            console.log(userInfo.getId());
             dataCard.id = userInfo.getId();
             sectionCards.addItem(createCard(dataCard));
             popupAddCard.close();
