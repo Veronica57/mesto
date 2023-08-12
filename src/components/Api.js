@@ -14,7 +14,7 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 
     getCards() {
@@ -22,10 +22,10 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 
-    setUserInfo(data) {
+    patchUserInfo(data) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
@@ -33,17 +33,17 @@ export default class Api {
                 name: data.username,
                 about: data.userdescription,
             }),
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 
-    setUserAvatar(data) {
+    patchAddAvatar(data) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
                 avatar: data.useravatar,
             }),
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 
     addNewCard(data) {
@@ -63,7 +63,7 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 
     deleteLike(cardId) {
@@ -72,7 +72,7 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 
     deleteCard(cardId) {
@@ -81,6 +81,6 @@ export default class Api {
             headers: {
                 authorization: this._authorization,
             },
-        }).then(this._checkResponse);
+        }).then(this._checkQuery);
     }
 }

@@ -92,7 +92,7 @@ const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
 popupAddCard.setEventListeners();
 
 const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
-    api.setUserAvatar(data)
+    api.setInfo(data)
         .then((res) => {
             userInfo.setUserInfo({
                 username: res.name,
@@ -103,7 +103,7 @@ const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
         })
         .catch((error) =>
             console.error(
-                `Ошибка при редактировании профиля ползователя ${error}`
+                `Ошибка при редактировании профиля пользователя ${error}`
             )
         )
         .finally(() => {
@@ -131,7 +131,7 @@ const popupDeleteCard = new PopupDelete(
 popupDeleteCard.setEventListeners();
 
 const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
-    api.setUserAvatar(data)
+    api.patchAddAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
                 username: res.name,
@@ -158,7 +158,7 @@ Array.from(document.forms).forEach((item) => {
 
 popupEditButton.addEventListener("click", () => {
     forms.editForm.resetValidation();
-    popupProfileEdit.setInputsValue(userInfo.getUserInfo());
+    popupProfileEdit.setInputValues(userInfo.getUserInfo());
     popupProfileEdit.open();
 });
 
@@ -186,4 +186,4 @@ Promise.all([api.getInfo(), api.getCards()])
         userInfo.setId(dataUser._id);
         sectionCards.renderItems(dataCard);
     })
-    .catch((error) => console.error(`Ошибка ${error}`));
+    .catch((error) => console.error(`Код ошибки ${error}`));
