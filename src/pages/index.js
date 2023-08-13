@@ -39,32 +39,29 @@ const api = new Api({
     },
 });
 
-// delete this line
-api.getCards().then((res) => console.log(res));
-
 const sectionCards = new Section((element) => {
     sectionCards.addItem(createCard(element));
 }, imageContainerSelector);
 
-const createCard = (element) => {
+const createCard = (data) => {
     const card = new Card(
-        element,
+        data,
         templateSelector,
         popupImage.open,
         popupDeleteCard.open,
-        (likingButton, cardId) => {
-            if (likingButton.classList.contains("photo__like_active")) {
-                api.deleteLike(cardId)
+        (isLiked) => {
+            if (isLiked) {
+                api.deleteLike(data._id)
                     .then((res) => {
-                        card.toggleLike(res.likes);
+                        card.handleDeleteLike(res.likes);
                     })
                     .catch((error) =>
                         console.error(`Ошибка при удалении лайка ${error}`)
                     );
             } else {
-                api.addLike(cardId)
+                api.addLike(data._id)
                     .then((res) => {
-                        card.toggleLike(res.likes);
+                        card.handleAddLike(res.likes);
                     })
                     .catch((error) =>
                         console.error(`Ошибка при добавлении лайка ${error}`)

@@ -4,7 +4,7 @@ export default class Card {
         templateSelector,
         openImagePopup,
         openDeletePopup,
-        toggleLike
+        handleLikeClick
     ) {
         this._data = data;
         this._imagelink = data.link;
@@ -14,10 +14,15 @@ export default class Card {
         this._cardId = data._id;
         this._likes = data.likes;
         this._likesLength = data.likes.length;
-        this._toggleLike = toggleLike;
+        this._handleLikeClick = handleLikeClick;
         this._openImagePopup = openImagePopup;
         this._openDeletePopup = openDeletePopup;
         this._templateSelector = templateSelector;
+        this._isLiked = Boolean(
+            this._likes.find((like) => {
+                like._id === data.id;
+            })
+        );
     }
 
     _getTemplate = () => {
@@ -29,7 +34,7 @@ export default class Card {
     };
 
     _handleLikeCard = () => {
-        this._toggleLike(this._likingButton, this._cardId);
+        this._handleLikeClick(this._isLiked);
     };
 
     _handleDeleteCard = () => {
@@ -62,9 +67,16 @@ export default class Card {
         this._cardLikesNumber.textContent = this._likesLength;
     }
 
-    toggleLike(likes) {
+    handleAddLike(likes) {
         this._likingButton.classList.toggle("photo__like_active");
         this._cardLikesNumber.textContent = likes.length;
+        this._isLiked = true;
+    }
+
+    handleDeleteLike(likes) {
+        this._likingButton.classList.toggle("photo__like_active");
+        this._cardLikesNumber.textContent = likes.length;
+        this._isLiked = false;
     }
 
     deleteCard() {
