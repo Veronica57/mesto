@@ -24,8 +24,12 @@ export default class PopupWithForm extends Popup {
         });
     }
 
-    setSubmitText() {
-        this._submitButton.textContent = this._textSubmit;
+    setSubmitText(isLoading, text) {
+        if (isLoading) {
+            this._submitButton.textContent = text;
+        } else {
+            this._submitButton.textContent = this._textSubmit;
+        }
     }
 
     close() {
@@ -37,7 +41,6 @@ export default class PopupWithForm extends Popup {
         super.setEventListeners();
         this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
-            this._submitButton.textContent = `${this._submitButton.textContent}...`;
             this._handleFormSubmit(this._getInputValues());
         });
         this.close();

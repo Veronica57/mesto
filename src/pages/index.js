@@ -39,6 +39,7 @@ const api = new Api({
     },
 });
 
+// delete this line
 api.getCards().then((res) => console.log(res));
 
 const sectionCards = new Section((element) => {
@@ -75,6 +76,7 @@ const createCard = (element) => {
 };
 
 const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
+    popupAddCard.setSubmitText(true, `Сохранение ...`);
     api.addNewCard(data)
         .then((dataCard) => {
             dataCard.id = userInfo.getId();
@@ -85,18 +87,19 @@ const popupAddCard = new PopupWithForm(popupAddImagSelector, (data) => {
             console.error(`Ошибка при добавлении фотографии ${error}`)
         )
         .finally(() => {
-            popupAddCard.setSubmitText();
+            popupAddCard.setSubmitText(false);
         });
 });
 popupAddCard.setEventListeners();
 
 const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
+    popupProfileEdit.setSubmitText(true, `Сохранение ...`);
     api.setInfo(data)
         .then((res) => {
             userInfo.setUserInfo({
                 username: res.name,
                 userdescription: res.about,
-                useravataravatar: res.avatar,
+                useravatar: res.avatar,
             });
             popupProfileEdit.close();
         })
@@ -106,7 +109,7 @@ const popupProfileEdit = new PopupWithForm(popupEditProfileSelector, (data) => {
             )
         )
         .finally(() => {
-            popupProfileEdit.setSubmitText();
+            popupProfileEdit.setSubmitText(false);
         });
 });
 popupProfileEdit.setEventListeners();
@@ -121,15 +124,13 @@ const popupDeleteCard = new PopupDelete(
             })
             .catch((error) =>
                 console.error(`Ошибка при удалении фотографии ${error}`)
-            )
-            .finally(() => {
-                popupDeleteCard.setSubmitText();
-            });
+            );
     }
 );
 popupDeleteCard.setEventListeners();
 
 const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
+    popupAddAvatar.setSubmitText(true, `Сохранение ...`);
     api.setAvatar(data)
         .then((res) => {
             userInfo.setUserInfo({
@@ -143,7 +144,7 @@ const popupAddAvatar = new PopupWithForm(popupAddAvatarSelector, (data) => {
             console.error(`Ошибка при изменении аватара ${error}`)
         )
         .finally(() => {
-            popupAddAvatar.setSubmitText();
+            popupAddAvatar.setSubmitText(false);
         });
 });
 popupAddAvatar.setEventListeners();
